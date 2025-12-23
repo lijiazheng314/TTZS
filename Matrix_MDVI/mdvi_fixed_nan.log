@@ -1,0 +1,105 @@
+/home/xbotics-mumu/miniconda3/envs/TTZS/lib/python3.10/site-packages/paddle/utils/cpp_extension/extension_utils.py:718: UserWarning: No ccache found. Please be aware that recompiling all source files may be required. You can download and install ccache from: https://github.com/ccache/ccache/blob/master/doc/INSTALL.md
+  warnings.warn(warning_message)
+[12-17 09:28:08 MainThread @logger.py:242] Argv: train_mdvi.py --game_type rock_paper_scissors --seed 0
+/home/xbotics-mumu/zljworkspace/PARL/parl/remote/utils.py:20: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+/home/xbotics-mumu/zljworkspace/PARL/parl/remote/worker.py:29: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml
+
+=== Two-Team Matrix Game Initialized ===
+  Team 1: 3 agents
+  Team 2: 3 agents
+  Actions per agent: 3
+  Game type: rock_paper_scissors
+  True Nash value: -0.0000
+  Team 1 Nash strategy: [0.33333333 0.33333333 0.33333333]
+  Team 2 Nash strategy: [0.33333333 0.33333333 0.33333333]
+[12-17 09:28:08 MainThread @decentralized_mdvi_matrix.py:336] Consensus matrix is doubly stochastic: True
+[12-17 09:28:08 MainThread @train_mdvi.py:274] 
+============================================================
+[12-17 09:28:08 MainThread @train_mdvi.py:275] Matrix Game FQI Training
+[12-17 09:28:08 MainThread @train_mdvi.py:276] ============================================================
+[12-17 09:28:08 MainThread @train_mdvi.py:277] Game type: rock_paper_scissors
+[12-17 09:28:08 MainThread @train_mdvi.py:278] True Nash equilibrium:
+[12-17 09:28:08 MainThread @train_mdvi.py:279]   Team 1 strategy: [0.33333333 0.33333333 0.33333333]
+[12-17 09:28:08 MainThread @train_mdvi.py:280]   Team 2 strategy: [0.33333333 0.33333333 0.33333333]
+[12-17 09:28:08 MainThread @train_mdvi.py:281]   Nash value: -0.0000
+[12-17 09:28:08 MainThread @train_mdvi.py:282] Save directory: ./mdvi_models/train_20251217_092808
+
+[12-17 09:28:08 MainThread @train_mdvi.py:285] 
+============================================================
+[12-17 09:28:08 MainThread @train_mdvi.py:286] Initial Exploration: Collecting 5000 samples
+[12-17 09:28:08 MainThread @train_mdvi.py:287] ============================================================
+[12-17 09:28:08 MainThread @train_mdvi.py:95] 
+=== Collecting random trajectory data ===
+[12-17 09:28:08 MainThread @train_mdvi.py:96]   Target samples: 5000
+[12-17 09:28:08 MainThread @train_mdvi.py:97]   Expected samples: 5000 (single-step game)
+[12-17 09:28:08 MainThread @train_mdvi.py:124] Collected 100/5000 samples
+[12-17 09:28:08 MainThread @train_mdvi.py:124] Collected 200/5000 samples
+[12-17 09:28:08 MainThread @train_mdvi.py:124] Collected 300/5000 samples
+[12-17 09:28:08 MainThread @train_mdvi.py:124] Collected 400/5000 samples
+[12-17 09:28:08 MainThread @train_mdvi.py:124] Collected 500/5000 samples
+[12-17 09:28:08 MainThread @train_mdvi.py:124] Collected 600/5000 samples
+[12-17 09:28:08 MainThread @train_mdvi.py:124] Collected 700/5000 samples
+[12-17 09:28:08 MainThread @train_mdvi.py:124] Collected 800/5000 samples
+[12-17 09:28:08 MainThread @train_mdvi.py:124] Collected 900/5000 samples
+[12-17 09:28:08 MainThread @train_mdvi.py:124] Collected 1000/5000 samples
+[12-17 09:28:08 MainThread @train_mdvi.py:124] Collected 1100/5000 samples
+[12-17 09:28:08 MainThread @train_mdvi.py:124] Collected 1200/5000 samples
+[12-17 09:28:08 MainThread @train_mdvi.py:124] Collected 1300/5000 samples
+[12-17 09:28:08 MainThread @train_mdvi.py:124] Collected 1400/5000 samples
+[12-17 09:28:08 MainThread @train_mdvi.py:124] Collected 1500/5000 samples
+[12-17 09:28:08 MainThread @train_mdvi.py:124] Collected 1600/5000 samples
+[12-17 09:28:08 MainThread @train_mdvi.py:124] Collected 1700/5000 samples
+[12-17 09:28:08 MainThread @train_mdvi.py:124] Collected 1800/5000 samples
+[12-17 09:28:08 MainThread @train_mdvi.py:124] Collected 1900/5000 samples
+[12-17 09:28:08 MainThread @train_mdvi.py:124] Collected 2000/5000 samples
+[12-17 09:28:08 MainThread @train_mdvi.py:124] Collected 2100/5000 samples
+[12-17 09:28:08 MainThread @train_mdvi.py:124] Collected 2200/5000 samples
+[12-17 09:28:09 MainThread @train_mdvi.py:124] Collected 2300/5000 samples
+[12-17 09:28:09 MainThread @train_mdvi.py:124] Collected 2400/5000 samples
+[12-17 09:28:09 MainThread @train_mdvi.py:124] Collected 2500/5000 samples
+[12-17 09:28:09 MainThread @train_mdvi.py:124] Collected 2600/5000 samples
+[12-17 09:28:09 MainThread @train_mdvi.py:124] Collected 2700/5000 samples
+[12-17 09:28:09 MainThread @train_mdvi.py:124] Collected 2800/5000 samples
+[12-17 09:28:09 MainThread @train_mdvi.py:124] Collected 2900/5000 samples
+[12-17 09:28:09 MainThread @train_mdvi.py:124] Collected 3000/5000 samples
+[12-17 09:28:09 MainThread @train_mdvi.py:124] Collected 3100/5000 samples
+[12-17 09:28:09 MainThread @train_mdvi.py:124] Collected 3200/5000 samples
+[12-17 09:28:09 MainThread @train_mdvi.py:124] Collected 3300/5000 samples
+[12-17 09:28:09 MainThread @train_mdvi.py:124] Collected 3400/5000 samples
+[12-17 09:28:09 MainThread @train_mdvi.py:124] Collected 3500/5000 samples
+[12-17 09:28:09 MainThread @train_mdvi.py:124] Collected 3600/5000 samples
+[12-17 09:28:09 MainThread @train_mdvi.py:124] Collected 3700/5000 samples
+[12-17 09:28:09 MainThread @train_mdvi.py:124] Collected 3800/5000 samples
+[12-17 09:28:09 MainThread @train_mdvi.py:124] Collected 3900/5000 samples
+[12-17 09:28:09 MainThread @train_mdvi.py:124] Collected 4000/5000 samples
+[12-17 09:28:09 MainThread @train_mdvi.py:124] Collected 4100/5000 samples
+[12-17 09:28:09 MainThread @train_mdvi.py:124] Collected 4200/5000 samples
+[12-17 09:28:09 MainThread @train_mdvi.py:124] Collected 4300/5000 samples
+[12-17 09:28:09 MainThread @train_mdvi.py:124] Collected 4400/5000 samples
+[12-17 09:28:09 MainThread @train_mdvi.py:124] Collected 4500/5000 samples
+[12-17 09:28:09 MainThread @train_mdvi.py:124] Collected 4600/5000 samples
+[12-17 09:28:09 MainThread @train_mdvi.py:124] Collected 4700/5000 samples
+[12-17 09:28:09 MainThread @train_mdvi.py:124] Collected 4800/5000 samples
+[12-17 09:28:09 MainThread @train_mdvi.py:124] Collected 4900/5000 samples
+[12-17 09:28:09 MainThread @train_mdvi.py:124] Collected 5000/5000 samples
+[12-17 09:28:09 MainThread @train_mdvi.py:126] Collection finished: Buffer size=5000
+[12-17 09:28:09 MainThread @train_mdvi.py:291] 
+============================================================
+[12-17 09:28:09 MainThread @train_mdvi.py:292] Establishing Environment Model MG
+[12-17 09:28:09 MainThread @train_mdvi.py:293] ============================================================
+[12-17 09:28:19 MainThread @train_mdvi.py:306] Model MG established:
+[12-17 09:28:19 MainThread @train_mdvi.py:307]   Trained 6 reward networks (R(a,b) fitted by NN)
+[12-17 09:28:19 MainThread @train_mdvi.py:308]   Training data: 5000 samples
+[12-17 09:28:19 MainThread @train_mdvi.py:309]   Can generalize to unseen (a,b) pairs!
+
+[12-17 09:28:19 MainThread @train_mdvi.py:312] 
+============================================================
+[12-17 09:28:19 MainThread @train_mdvi.py:313] Starting MDVI Training (50 iterations)
+[12-17 09:28:19 MainThread @train_mdvi.py:314] MDVI模式: 大量Planning样本重复使用(每999次迭代重采样)
+[12-17 09:28:19 MainThread @train_mdvi.py:315] ============================================================
+
+[12-17 09:28:19 MainThread @train_mdvi.py:322] 
+=== Iteration 1/50 ===
+[12-17 09:28:19 MainThread @train_mdvi.py:323] ♻️  Resampling Planning: Generating 20000 trajectories from model MG

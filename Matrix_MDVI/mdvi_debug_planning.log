@@ -1,0 +1,652 @@
+/home/xbotics-mumu/miniconda3/envs/TTZS/lib/python3.10/site-packages/paddle/utils/cpp_extension/extension_utils.py:718: UserWarning: No ccache found. Please be aware that recompiling all source files may be required. You can download and install ccache from: https://github.com/ccache/ccache/blob/master/doc/INSTALL.md
+  warnings.warn(warning_message)
+[12-17 10:01:14 MainThread @logger.py:242] Argv: train_mdvi.py --game_type rock_paper_scissors --seed 0
+/home/xbotics-mumu/zljworkspace/PARL/parl/remote/utils.py:20: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  import pkg_resources
+/home/xbotics-mumu/zljworkspace/PARL/parl/remote/worker.py:29: FutureWarning: The pynvml package is deprecated. Please install nvidia-ml-py instead. If you did not install pynvml directly, please report this to the maintainers of the package that installed pynvml for you.
+  import pynvml
+
+=== Two-Team Matrix Game Initialized ===
+  Team 1: 3 agents
+  Team 2: 3 agents
+  Actions per agent: 3
+  Game type: rock_paper_scissors
+  True Nash value: -0.0000
+  Team 1 Nash strategy: [0.33333333 0.33333333 0.33333333]
+  Team 2 Nash strategy: [0.33333333 0.33333333 0.33333333]
+[12-17 10:01:15 MainThread @decentralized_mdvi_matrix.py:336] Consensus matrix is doubly stochastic: True
+[12-17 10:01:15 MainThread @train_mdvi.py:274] 
+============================================================
+[12-17 10:01:15 MainThread @train_mdvi.py:275] Matrix Game FQI Training
+[12-17 10:01:15 MainThread @train_mdvi.py:276] ============================================================
+[12-17 10:01:15 MainThread @train_mdvi.py:277] Game type: rock_paper_scissors
+[12-17 10:01:15 MainThread @train_mdvi.py:278] True Nash equilibrium:
+[12-17 10:01:15 MainThread @train_mdvi.py:279]   Team 1 strategy: [0.33333333 0.33333333 0.33333333]
+[12-17 10:01:15 MainThread @train_mdvi.py:280]   Team 2 strategy: [0.33333333 0.33333333 0.33333333]
+[12-17 10:01:15 MainThread @train_mdvi.py:281]   Nash value: -0.0000
+[12-17 10:01:15 MainThread @train_mdvi.py:282] Save directory: ./mdvi_models/train_20251217_100115
+
+[12-17 10:01:15 MainThread @train_mdvi.py:285] 
+============================================================
+[12-17 10:01:15 MainThread @train_mdvi.py:286] Initial Exploration: Collecting 5000 samples
+[12-17 10:01:15 MainThread @train_mdvi.py:287] ============================================================
+[12-17 10:01:15 MainThread @train_mdvi.py:95] 
+=== Collecting random trajectory data ===
+[12-17 10:01:15 MainThread @train_mdvi.py:96]   Target samples: 5000
+[12-17 10:01:15 MainThread @train_mdvi.py:97]   Expected samples: 5000 (single-step game)
+[12-17 10:01:15 MainThread @train_mdvi.py:124] Collected 100/5000 samples
+[12-17 10:01:15 MainThread @train_mdvi.py:124] Collected 200/5000 samples
+[12-17 10:01:15 MainThread @train_mdvi.py:124] Collected 300/5000 samples
+[12-17 10:01:15 MainThread @train_mdvi.py:124] Collected 400/5000 samples
+[12-17 10:01:15 MainThread @train_mdvi.py:124] Collected 500/5000 samples
+[12-17 10:01:15 MainThread @train_mdvi.py:124] Collected 600/5000 samples
+[12-17 10:01:15 MainThread @train_mdvi.py:124] Collected 700/5000 samples
+[12-17 10:01:15 MainThread @train_mdvi.py:124] Collected 800/5000 samples
+[12-17 10:01:15 MainThread @train_mdvi.py:124] Collected 900/5000 samples
+[12-17 10:01:15 MainThread @train_mdvi.py:124] Collected 1000/5000 samples
+[12-17 10:01:15 MainThread @train_mdvi.py:124] Collected 1100/5000 samples
+[12-17 10:01:15 MainThread @train_mdvi.py:124] Collected 1200/5000 samples
+[12-17 10:01:15 MainThread @train_mdvi.py:124] Collected 1300/5000 samples
+[12-17 10:01:15 MainThread @train_mdvi.py:124] Collected 1400/5000 samples
+[12-17 10:01:15 MainThread @train_mdvi.py:124] Collected 1500/5000 samples
+[12-17 10:01:15 MainThread @train_mdvi.py:124] Collected 1600/5000 samples
+[12-17 10:01:15 MainThread @train_mdvi.py:124] Collected 1700/5000 samples
+[12-17 10:01:15 MainThread @train_mdvi.py:124] Collected 1800/5000 samples
+[12-17 10:01:15 MainThread @train_mdvi.py:124] Collected 1900/5000 samples
+[12-17 10:01:15 MainThread @train_mdvi.py:124] Collected 2000/5000 samples
+[12-17 10:01:15 MainThread @train_mdvi.py:124] Collected 2100/5000 samples
+[12-17 10:01:15 MainThread @train_mdvi.py:124] Collected 2200/5000 samples
+[12-17 10:01:15 MainThread @train_mdvi.py:124] Collected 2300/5000 samples
+[12-17 10:01:15 MainThread @train_mdvi.py:124] Collected 2400/5000 samples
+[12-17 10:01:15 MainThread @train_mdvi.py:124] Collected 2500/5000 samples
+[12-17 10:01:15 MainThread @train_mdvi.py:124] Collected 2600/5000 samples
+[12-17 10:01:15 MainThread @train_mdvi.py:124] Collected 2700/5000 samples
+[12-17 10:01:15 MainThread @train_mdvi.py:124] Collected 2800/5000 samples
+[12-17 10:01:15 MainThread @train_mdvi.py:124] Collected 2900/5000 samples
+[12-17 10:01:15 MainThread @train_mdvi.py:124] Collected 3000/5000 samples
+[12-17 10:01:15 MainThread @train_mdvi.py:124] Collected 3100/5000 samples
+[12-17 10:01:15 MainThread @train_mdvi.py:124] Collected 3200/5000 samples
+[12-17 10:01:15 MainThread @train_mdvi.py:124] Collected 3300/5000 samples
+[12-17 10:01:15 MainThread @train_mdvi.py:124] Collected 3400/5000 samples
+[12-17 10:01:15 MainThread @train_mdvi.py:124] Collected 3500/5000 samples
+[12-17 10:01:15 MainThread @train_mdvi.py:124] Collected 3600/5000 samples
+[12-17 10:01:15 MainThread @train_mdvi.py:124] Collected 3700/5000 samples
+[12-17 10:01:15 MainThread @train_mdvi.py:124] Collected 3800/5000 samples
+[12-17 10:01:15 MainThread @train_mdvi.py:124] Collected 3900/5000 samples
+[12-17 10:01:15 MainThread @train_mdvi.py:124] Collected 4000/5000 samples
+[12-17 10:01:15 MainThread @train_mdvi.py:124] Collected 4100/5000 samples
+[12-17 10:01:15 MainThread @train_mdvi.py:124] Collected 4200/5000 samples
+[12-17 10:01:15 MainThread @train_mdvi.py:124] Collected 4300/5000 samples
+[12-17 10:01:15 MainThread @train_mdvi.py:124] Collected 4400/5000 samples
+[12-17 10:01:15 MainThread @train_mdvi.py:124] Collected 4500/5000 samples
+[12-17 10:01:15 MainThread @train_mdvi.py:124] Collected 4600/5000 samples
+[12-17 10:01:15 MainThread @train_mdvi.py:124] Collected 4700/5000 samples
+[12-17 10:01:15 MainThread @train_mdvi.py:124] Collected 4800/5000 samples
+[12-17 10:01:15 MainThread @train_mdvi.py:124] Collected 4900/5000 samples
+[12-17 10:01:15 MainThread @train_mdvi.py:124] Collected 5000/5000 samples
+[12-17 10:01:15 MainThread @train_mdvi.py:126] Collection finished: Buffer size=5000
+[12-17 10:01:15 MainThread @train_mdvi.py:291] 
+============================================================
+[12-17 10:01:15 MainThread @train_mdvi.py:292] Establishing Environment Model MG
+[12-17 10:01:15 MainThread @train_mdvi.py:293] ============================================================
+  Agent 0 Epoch 10: Loss=0.000000
+  Agent 0 Epoch 20: Loss=0.000000
+  Agent 0 Epoch 30: Loss=0.000000
+  Agent 0 Epoch 40: Loss=0.000000
+  Agent 0 Epoch 50: Loss=0.000000
+  Agent 0 训练完成:
+    预测范围: [-1.0000, 1.0000]
+    真实范围: [-1.0000, 1.0000]
+    MSE: 0.000000
+  Agent 1 Epoch 10: Loss=0.000020
+  Agent 1 Epoch 20: Loss=0.000000
+  Agent 1 Epoch 30: Loss=0.000000
+  Agent 1 Epoch 40: Loss=0.000000
+  Agent 1 Epoch 50: Loss=0.000000
+  Agent 1 训练完成:
+    预测范围: [-1.0000, 1.0000]
+    真实范围: [-1.0000, 1.0000]
+    MSE: 0.000000
+  Agent 2 Epoch 10: Loss=0.000561
+  Agent 2 Epoch 20: Loss=0.000006
+  Agent 2 Epoch 30: Loss=0.000000
+  Agent 2 Epoch 40: Loss=0.000000
+  Agent 2 Epoch 50: Loss=0.000000
+  Agent 2 训练完成:
+    预测范围: [-1.0000, 1.0000]
+    真实范围: [-1.0000, 1.0000]
+    MSE: 0.000000
+  Agent 3 Epoch 10: Loss=0.000000
+  Agent 3 Epoch 20: Loss=0.000000
+  Agent 3 Epoch 30: Loss=0.000000
+  Agent 3 Epoch 40: Loss=0.000000
+  Agent 3 Epoch 50: Loss=0.000000
+  Agent 3 训练完成:
+    预测范围: [-1.0000, 1.0000]
+    真实范围: [-1.0000, 1.0000]
+    MSE: 0.000000
+  Agent 4 Epoch 10: Loss=0.000048
+  Agent 4 Epoch 20: Loss=0.000002
+  Agent 4 Epoch 30: Loss=0.000000
+  Agent 4 Epoch 40: Loss=0.000449
+  Agent 4 Epoch 50: Loss=0.000343
+  Agent 4 训练完成:
+    预测范围: [-1.0021, 1.0037]
+    真实范围: [-1.0000, 1.0000]
+    MSE: 0.000035
+  Agent 5 Epoch 10: Loss=0.000000
+  Agent 5 Epoch 20: Loss=0.000000
+  Agent 5 Epoch 30: Loss=0.000000
+  Agent 5 Epoch 40: Loss=0.000001
+  Agent 5 Epoch 50: Loss=0.000002
+  Agent 5 训练完成:
+    预测范围: [-1.0006, 1.0010]
+    真实范围: [-1.0000, 1.0000]
+    MSE: 0.000000
+[12-17 10:01:25 MainThread @train_mdvi.py:306] Model MG established:
+[12-17 10:01:25 MainThread @train_mdvi.py:307]   Trained 6 reward networks (R(a,b) fitted by NN)
+[12-17 10:01:25 MainThread @train_mdvi.py:308]   Training data: 5000 samples
+[12-17 10:01:25 MainThread @train_mdvi.py:309]   Can generalize to unseen (a,b) pairs!
+
+[12-17 10:01:25 MainThread @train_mdvi.py:312] 
+============================================================
+[12-17 10:01:25 MainThread @train_mdvi.py:313] Starting MDVI Training (50 iterations)
+[12-17 10:01:25 MainThread @train_mdvi.py:314] MDVI模式: 大量Planning样本重复使用(每999次迭代重采样)
+[12-17 10:01:25 MainThread @train_mdvi.py:315] ============================================================
+
+[12-17 10:01:25 MainThread @train_mdvi.py:322] 
+=== Iteration 1/50 ===
+[12-17 10:01:25 MainThread @train_mdvi.py:323] ♻️  Resampling Planning: Generating 20000 trajectories from model MG
+  [Planning Debug] Agent0: action=(2,2) -> reward=0.000000
+  [Planning Debug] Agent1: action=(0,2) -> reward=1.000009
+  [Planning Debug] Agent2: action=(0,2) -> reward=0.999999
+[12-17 10:03:09 MainThread @train_mdvi.py:399] Planning complete: Generated 20000 model samples
+[12-17 10:03:09 MainThread @train_mdvi.py:403] 
+  [Planning样本分析]
+[12-17 10:03:09 MainThread @train_mdvi.py:404]     奖励统计: mean=0.1161, std=0.6947, min=-1.0000, max=1.0000
+[12-17 10:03:09 MainThread @train_mdvi.py:412]     Team1 Agent0 动作分布: [0. 0. 1.]
+[12-17 10:03:09 MainThread @train_mdvi.py:413]     动作熵(0=确定,1.099=均匀): -0.0000
+[12-17 10:03:09 MainThread @decentralized_mdvi_matrix.py:372] 
+=== Fitted Q-Iteration 1/50 ===
+[12-17 10:03:09 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 1/6...
+[12-17 10:03:09 MainThread @decentralized_mdvi_matrix.py:494]   [Agent 0 Target计算调试]
+[12-17 10:03:09 MainThread @decentralized_mdvi_matrix.py:495]     总样本数: 20000
+[12-17 10:03:09 MainThread @decentralized_mdvi_matrix.py:496]     Terminated样本: 20000 (100.0%)
+[12-17 10:03:09 MainThread @decentralized_mdvi_matrix.py:497]     Target统计: mean=-0.1579, std=0.3646, min=-1.0000, max=0.0000
+[12-17 10:03:09 MainThread @decentralized_mdvi_matrix.py:500]     前3个Target: [2.7567148e-07 2.7567148e-07 2.7567148e-07]
+[12-17 10:03:09 MainThread @decentralized_mdvi_matrix.py:501]     前3个Reward: [2.7567148e-07 2.7567148e-07 2.7567148e-07]
+[12-17 10:03:09 MainThread @decentralized_mdvi_matrix.py:502]     Target=Reward: True
+[12-17 10:03:09 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 2/6...
+[12-17 10:03:09 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 3/6...
+[12-17 10:03:09 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 4/6...
+[12-17 10:03:09 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 5/6...
+[12-17 10:03:09 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 6/6...
+[12-17 10:03:09 MainThread @decentralized_mdvi_matrix.py:392] Mean Nash solving time: 0.0000s
+[12-17 10:03:09 MainThread @decentralized_mdvi_matrix.py:396] Nash cache: 100.0% hit rate (119994 hits, 6 misses, 6 cached)
+[12-17 10:03:09 MainThread @decentralized_mdvi_matrix.py:401] Solving (4) by DIGing decentralized optimization...
+[12-17 10:03:17 MainThread @decentralized_mdvi_matrix.py:553]   [优化结果]
+[12-17 10:03:17 MainThread @decentralized_mdvi_matrix.py:554]     训练Epochs: 8
+[12-17 10:03:17 MainThread @decentralized_mdvi_matrix.py:555]     总更新次数: 1256
+[12-17 10:03:17 MainThread @decentralized_mdvi_matrix.py:556]     最终Loss: 0.480346 (std=0.009153)
+[12-17 10:03:17 MainThread @decentralized_mdvi_matrix.py:557]     最终TD_Error: 0.498004 (std=0.003462)
+[12-17 10:03:17 MainThread @decentralized_mdvi_matrix.py:430] Iteration 1 completed: loss=0.4803, td_error=0.4980, consensus_error=0.000512
+[12-17 10:03:17 MainThread @train_mdvi.py:416] 
+=== Iteration 2/50 ===
+[12-17 10:03:17 MainThread @train_mdvi.py:417] ♻️  Reusing 20000 Planning samples (no resampling)
+[12-17 10:03:17 MainThread @decentralized_mdvi_matrix.py:372] 
+=== Fitted Q-Iteration 2/50 ===
+[12-17 10:03:17 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 1/6...
+[12-17 10:03:17 MainThread @decentralized_mdvi_matrix.py:494]   [Agent 0 Target计算调试]
+[12-17 10:03:17 MainThread @decentralized_mdvi_matrix.py:495]     总样本数: 20000
+[12-17 10:03:17 MainThread @decentralized_mdvi_matrix.py:496]     Terminated样本: 20000 (100.0%)
+[12-17 10:03:17 MainThread @decentralized_mdvi_matrix.py:497]     Target统计: mean=-0.1579, std=0.3646, min=-1.0000, max=0.0000
+[12-17 10:03:17 MainThread @decentralized_mdvi_matrix.py:500]     前3个Target: [2.7567148e-07 2.7567148e-07 2.7567148e-07]
+[12-17 10:03:17 MainThread @decentralized_mdvi_matrix.py:501]     前3个Reward: [2.7567148e-07 2.7567148e-07 2.7567148e-07]
+[12-17 10:03:17 MainThread @decentralized_mdvi_matrix.py:502]     Target=Reward: True
+[12-17 10:03:17 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 2/6...
+[12-17 10:03:17 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 3/6...
+[12-17 10:03:17 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 4/6...
+[12-17 10:03:17 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 5/6...
+[12-17 10:03:17 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 6/6...
+[12-17 10:03:17 MainThread @decentralized_mdvi_matrix.py:392] Mean Nash solving time: 0.0000s
+[12-17 10:03:17 MainThread @decentralized_mdvi_matrix.py:396] Nash cache: 100.0% hit rate (119994 hits, 6 misses, 6 cached)
+[12-17 10:03:17 MainThread @decentralized_mdvi_matrix.py:401] Solving (4) by DIGing decentralized optimization...
+[12-17 10:03:26 MainThread @decentralized_mdvi_matrix.py:553]   [优化结果]
+[12-17 10:03:26 MainThread @decentralized_mdvi_matrix.py:554]     训练Epochs: 8
+[12-17 10:03:26 MainThread @decentralized_mdvi_matrix.py:555]     总更新次数: 1256
+[12-17 10:03:26 MainThread @decentralized_mdvi_matrix.py:556]     最终Loss: 0.430329 (std=0.023168)
+[12-17 10:03:26 MainThread @decentralized_mdvi_matrix.py:557]     最终TD_Error: 0.474512 (std=0.013879)
+[12-17 10:03:26 MainThread @decentralized_mdvi_matrix.py:430] Iteration 2 completed: loss=0.4303, td_error=0.4745, consensus_error=0.000696
+[12-17 10:03:26 MainThread @train_mdvi.py:416] 
+=== Iteration 3/50 ===
+[12-17 10:03:26 MainThread @train_mdvi.py:417] ♻️  Reusing 20000 Planning samples (no resampling)
+[12-17 10:03:26 MainThread @decentralized_mdvi_matrix.py:372] 
+=== Fitted Q-Iteration 3/50 ===
+[12-17 10:03:26 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 1/6...
+[12-17 10:03:26 MainThread @decentralized_mdvi_matrix.py:494]   [Agent 0 Target计算调试]
+[12-17 10:03:26 MainThread @decentralized_mdvi_matrix.py:495]     总样本数: 20000
+[12-17 10:03:26 MainThread @decentralized_mdvi_matrix.py:496]     Terminated样本: 20000 (100.0%)
+[12-17 10:03:26 MainThread @decentralized_mdvi_matrix.py:497]     Target统计: mean=-0.1579, std=0.3646, min=-1.0000, max=0.0000
+[12-17 10:03:26 MainThread @decentralized_mdvi_matrix.py:500]     前3个Target: [2.7567148e-07 2.7567148e-07 2.7567148e-07]
+[12-17 10:03:26 MainThread @decentralized_mdvi_matrix.py:501]     前3个Reward: [2.7567148e-07 2.7567148e-07 2.7567148e-07]
+[12-17 10:03:26 MainThread @decentralized_mdvi_matrix.py:502]     Target=Reward: True
+[12-17 10:03:26 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 2/6...
+[12-17 10:03:26 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 3/6...
+[12-17 10:03:26 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 4/6...
+[12-17 10:03:26 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 5/6...
+[12-17 10:03:26 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 6/6...
+[12-17 10:03:26 MainThread @decentralized_mdvi_matrix.py:392] Mean Nash solving time: 0.0000s
+[12-17 10:03:26 MainThread @decentralized_mdvi_matrix.py:396] Nash cache: 100.0% hit rate (119994 hits, 6 misses, 6 cached)
+[12-17 10:03:26 MainThread @decentralized_mdvi_matrix.py:401] Solving (4) by DIGing decentralized optimization...
+[12-17 10:03:34 MainThread @decentralized_mdvi_matrix.py:553]   [优化结果]
+[12-17 10:03:34 MainThread @decentralized_mdvi_matrix.py:554]     训练Epochs: 8
+[12-17 10:03:34 MainThread @decentralized_mdvi_matrix.py:555]     总更新次数: 1256
+[12-17 10:03:34 MainThread @decentralized_mdvi_matrix.py:556]     最终Loss: 0.302460 (std=0.051929)
+[12-17 10:03:34 MainThread @decentralized_mdvi_matrix.py:557]     最终TD_Error: 0.395591 (std=0.032497)
+[12-17 10:03:34 MainThread @decentralized_mdvi_matrix.py:430] Iteration 3 completed: loss=0.3025, td_error=0.3956, consensus_error=0.000888
+[12-17 10:03:34 MainThread @train_mdvi.py:416] 
+=== Iteration 4/50 ===
+[12-17 10:03:34 MainThread @train_mdvi.py:417] ♻️  Reusing 20000 Planning samples (no resampling)
+[12-17 10:03:34 MainThread @decentralized_mdvi_matrix.py:372] 
+=== Fitted Q-Iteration 4/50 ===
+[12-17 10:03:34 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 1/6...
+[12-17 10:03:34 MainThread @decentralized_mdvi_matrix.py:494]   [Agent 0 Target计算调试]
+[12-17 10:03:34 MainThread @decentralized_mdvi_matrix.py:495]     总样本数: 20000
+[12-17 10:03:34 MainThread @decentralized_mdvi_matrix.py:496]     Terminated样本: 20000 (100.0%)
+[12-17 10:03:34 MainThread @decentralized_mdvi_matrix.py:497]     Target统计: mean=-0.1579, std=0.3646, min=-1.0000, max=0.0000
+[12-17 10:03:34 MainThread @decentralized_mdvi_matrix.py:500]     前3个Target: [2.7567148e-07 2.7567148e-07 2.7567148e-07]
+[12-17 10:03:34 MainThread @decentralized_mdvi_matrix.py:501]     前3个Reward: [2.7567148e-07 2.7567148e-07 2.7567148e-07]
+[12-17 10:03:34 MainThread @decentralized_mdvi_matrix.py:502]     Target=Reward: True
+[12-17 10:03:34 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 2/6...
+[12-17 10:03:34 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 3/6...
+[12-17 10:03:34 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 4/6...
+[12-17 10:03:34 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 5/6...
+[12-17 10:03:34 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 6/6...
+[12-17 10:03:34 MainThread @decentralized_mdvi_matrix.py:392] Mean Nash solving time: 0.0000s
+[12-17 10:03:34 MainThread @decentralized_mdvi_matrix.py:396] Nash cache: 100.0% hit rate (119994 hits, 6 misses, 6 cached)
+[12-17 10:03:34 MainThread @decentralized_mdvi_matrix.py:401] Solving (4) by DIGing decentralized optimization...
+[12-17 10:03:42 MainThread @decentralized_mdvi_matrix.py:553]   [优化结果]
+[12-17 10:03:42 MainThread @decentralized_mdvi_matrix.py:554]     训练Epochs: 8
+[12-17 10:03:42 MainThread @decentralized_mdvi_matrix.py:555]     总更新次数: 1256
+[12-17 10:03:42 MainThread @decentralized_mdvi_matrix.py:556]     最终Loss: 0.115803 (std=0.044681)
+[12-17 10:03:42 MainThread @decentralized_mdvi_matrix.py:557]     最终TD_Error: 0.245386 (std=0.048810)
+[12-17 10:03:42 MainThread @decentralized_mdvi_matrix.py:430] Iteration 4 completed: loss=0.1158, td_error=0.2454, consensus_error=0.000508
+[12-17 10:03:42 MainThread @train_mdvi.py:416] 
+=== Iteration 5/50 ===
+[12-17 10:03:42 MainThread @train_mdvi.py:417] ♻️  Reusing 20000 Planning samples (no resampling)
+[12-17 10:03:42 MainThread @decentralized_mdvi_matrix.py:372] 
+=== Fitted Q-Iteration 5/50 ===
+[12-17 10:03:42 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 1/6...
+[12-17 10:03:42 MainThread @decentralized_mdvi_matrix.py:494]   [Agent 0 Target计算调试]
+[12-17 10:03:42 MainThread @decentralized_mdvi_matrix.py:495]     总样本数: 20000
+[12-17 10:03:42 MainThread @decentralized_mdvi_matrix.py:496]     Terminated样本: 20000 (100.0%)
+[12-17 10:03:42 MainThread @decentralized_mdvi_matrix.py:497]     Target统计: mean=-0.1579, std=0.3646, min=-1.0000, max=0.0000
+[12-17 10:03:42 MainThread @decentralized_mdvi_matrix.py:500]     前3个Target: [2.7567148e-07 2.7567148e-07 2.7567148e-07]
+[12-17 10:03:42 MainThread @decentralized_mdvi_matrix.py:501]     前3个Reward: [2.7567148e-07 2.7567148e-07 2.7567148e-07]
+[12-17 10:03:42 MainThread @decentralized_mdvi_matrix.py:502]     Target=Reward: True
+[12-17 10:03:42 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 2/6...
+[12-17 10:03:42 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 3/6...
+[12-17 10:03:42 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 4/6...
+[12-17 10:03:42 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 5/6...
+[12-17 10:03:42 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 6/6...
+[12-17 10:03:42 MainThread @decentralized_mdvi_matrix.py:392] Mean Nash solving time: 0.0000s
+[12-17 10:03:42 MainThread @decentralized_mdvi_matrix.py:396] Nash cache: 100.0% hit rate (119994 hits, 6 misses, 6 cached)
+[12-17 10:03:42 MainThread @decentralized_mdvi_matrix.py:401] Solving (4) by DIGing decentralized optimization...
+[12-17 10:03:50 MainThread @decentralized_mdvi_matrix.py:553]   [优化结果]
+[12-17 10:03:50 MainThread @decentralized_mdvi_matrix.py:554]     训练Epochs: 8
+[12-17 10:03:50 MainThread @decentralized_mdvi_matrix.py:555]     总更新次数: 1256
+[12-17 10:03:50 MainThread @decentralized_mdvi_matrix.py:556]     最终Loss: 0.041346 (std=0.008098)
+[12-17 10:03:50 MainThread @decentralized_mdvi_matrix.py:557]     最终TD_Error: 0.129922 (std=0.022341)
+[12-17 10:03:50 MainThread @decentralized_mdvi_matrix.py:430] Iteration 5 completed: loss=0.0413, td_error=0.1299, consensus_error=0.000174
+[12-17 10:03:50 MainThread @train_mdvi.py:416] 
+=== Iteration 6/50 ===
+[12-17 10:03:50 MainThread @train_mdvi.py:417] ♻️  Reusing 20000 Planning samples (no resampling)
+[12-17 10:03:50 MainThread @decentralized_mdvi_matrix.py:372] 
+=== Fitted Q-Iteration 6/50 ===
+[12-17 10:03:50 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 1/6...
+[12-17 10:03:50 MainThread @decentralized_mdvi_matrix.py:494]   [Agent 0 Target计算调试]
+[12-17 10:03:50 MainThread @decentralized_mdvi_matrix.py:495]     总样本数: 20000
+[12-17 10:03:50 MainThread @decentralized_mdvi_matrix.py:496]     Terminated样本: 20000 (100.0%)
+[12-17 10:03:50 MainThread @decentralized_mdvi_matrix.py:497]     Target统计: mean=-0.1579, std=0.3646, min=-1.0000, max=0.0000
+[12-17 10:03:50 MainThread @decentralized_mdvi_matrix.py:500]     前3个Target: [2.7567148e-07 2.7567148e-07 2.7567148e-07]
+[12-17 10:03:50 MainThread @decentralized_mdvi_matrix.py:501]     前3个Reward: [2.7567148e-07 2.7567148e-07 2.7567148e-07]
+[12-17 10:03:50 MainThread @decentralized_mdvi_matrix.py:502]     Target=Reward: True
+[12-17 10:03:50 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 2/6...
+[12-17 10:03:50 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 3/6...
+[12-17 10:03:50 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 4/6...
+[12-17 10:03:50 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 5/6...
+[12-17 10:03:50 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 6/6...
+[12-17 10:03:50 MainThread @decentralized_mdvi_matrix.py:392] Mean Nash solving time: 0.0000s
+[12-17 10:03:50 MainThread @decentralized_mdvi_matrix.py:396] Nash cache: 100.0% hit rate (119994 hits, 6 misses, 6 cached)
+[12-17 10:03:50 MainThread @decentralized_mdvi_matrix.py:401] Solving (4) by DIGing decentralized optimization...
+[12-17 10:03:58 MainThread @decentralized_mdvi_matrix.py:553]   [优化结果]
+[12-17 10:03:58 MainThread @decentralized_mdvi_matrix.py:554]     训练Epochs: 8
+[12-17 10:03:58 MainThread @decentralized_mdvi_matrix.py:555]     总更新次数: 1256
+[12-17 10:03:58 MainThread @decentralized_mdvi_matrix.py:556]     最终Loss: 0.037443 (std=0.007760)
+[12-17 10:03:58 MainThread @decentralized_mdvi_matrix.py:557]     最终TD_Error: 0.096750 (std=0.015448)
+[12-17 10:03:58 MainThread @decentralized_mdvi_matrix.py:430] Iteration 6 completed: loss=0.0374, td_error=0.0968, consensus_error=0.000081
+[12-17 10:03:58 MainThread @train_mdvi.py:416] 
+=== Iteration 7/50 ===
+[12-17 10:03:58 MainThread @train_mdvi.py:417] ♻️  Reusing 20000 Planning samples (no resampling)
+[12-17 10:03:58 MainThread @decentralized_mdvi_matrix.py:372] 
+=== Fitted Q-Iteration 7/50 ===
+[12-17 10:03:58 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 1/6...
+[12-17 10:03:58 MainThread @decentralized_mdvi_matrix.py:494]   [Agent 0 Target计算调试]
+[12-17 10:03:58 MainThread @decentralized_mdvi_matrix.py:495]     总样本数: 20000
+[12-17 10:03:58 MainThread @decentralized_mdvi_matrix.py:496]     Terminated样本: 20000 (100.0%)
+[12-17 10:03:58 MainThread @decentralized_mdvi_matrix.py:497]     Target统计: mean=-0.1579, std=0.3646, min=-1.0000, max=0.0000
+[12-17 10:03:58 MainThread @decentralized_mdvi_matrix.py:500]     前3个Target: [2.7567148e-07 2.7567148e-07 2.7567148e-07]
+[12-17 10:03:58 MainThread @decentralized_mdvi_matrix.py:501]     前3个Reward: [2.7567148e-07 2.7567148e-07 2.7567148e-07]
+[12-17 10:03:58 MainThread @decentralized_mdvi_matrix.py:502]     Target=Reward: True
+[12-17 10:03:58 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 2/6...
+[12-17 10:03:58 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 3/6...
+[12-17 10:03:58 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 4/6...
+[12-17 10:03:58 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 5/6...
+[12-17 10:03:58 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 6/6...
+[12-17 10:03:58 MainThread @decentralized_mdvi_matrix.py:392] Mean Nash solving time: 0.0000s
+[12-17 10:03:58 MainThread @decentralized_mdvi_matrix.py:396] Nash cache: 100.0% hit rate (119994 hits, 6 misses, 6 cached)
+[12-17 10:03:58 MainThread @decentralized_mdvi_matrix.py:401] Solving (4) by DIGing decentralized optimization...
+[12-17 10:04:06 MainThread @decentralized_mdvi_matrix.py:553]   [优化结果]
+[12-17 10:04:06 MainThread @decentralized_mdvi_matrix.py:554]     训练Epochs: 8
+[12-17 10:04:06 MainThread @decentralized_mdvi_matrix.py:555]     总更新次数: 1256
+[12-17 10:04:06 MainThread @decentralized_mdvi_matrix.py:556]     最终Loss: 0.038042 (std=0.007772)
+[12-17 10:04:06 MainThread @decentralized_mdvi_matrix.py:557]     最终TD_Error: 0.091843 (std=0.015137)
+[12-17 10:04:06 MainThread @decentralized_mdvi_matrix.py:430] Iteration 7 completed: loss=0.0380, td_error=0.0918, consensus_error=0.000116
+[12-17 10:04:06 MainThread @train_mdvi.py:416] 
+=== Iteration 8/50 ===
+[12-17 10:04:06 MainThread @train_mdvi.py:417] ♻️  Reusing 20000 Planning samples (no resampling)
+[12-17 10:04:06 MainThread @decentralized_mdvi_matrix.py:372] 
+=== Fitted Q-Iteration 8/50 ===
+[12-17 10:04:06 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 1/6...
+[12-17 10:04:06 MainThread @decentralized_mdvi_matrix.py:494]   [Agent 0 Target计算调试]
+[12-17 10:04:06 MainThread @decentralized_mdvi_matrix.py:495]     总样本数: 20000
+[12-17 10:04:06 MainThread @decentralized_mdvi_matrix.py:496]     Terminated样本: 20000 (100.0%)
+[12-17 10:04:06 MainThread @decentralized_mdvi_matrix.py:497]     Target统计: mean=-0.1579, std=0.3646, min=-1.0000, max=0.0000
+[12-17 10:04:06 MainThread @decentralized_mdvi_matrix.py:500]     前3个Target: [2.7567148e-07 2.7567148e-07 2.7567148e-07]
+[12-17 10:04:06 MainThread @decentralized_mdvi_matrix.py:501]     前3个Reward: [2.7567148e-07 2.7567148e-07 2.7567148e-07]
+[12-17 10:04:06 MainThread @decentralized_mdvi_matrix.py:502]     Target=Reward: True
+[12-17 10:04:06 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 2/6...
+[12-17 10:04:06 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 3/6...
+[12-17 10:04:06 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 4/6...
+[12-17 10:04:06 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 5/6...
+[12-17 10:04:06 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 6/6...
+[12-17 10:04:06 MainThread @decentralized_mdvi_matrix.py:392] Mean Nash solving time: 0.0000s
+[12-17 10:04:06 MainThread @decentralized_mdvi_matrix.py:396] Nash cache: 100.0% hit rate (119994 hits, 6 misses, 6 cached)
+[12-17 10:04:06 MainThread @decentralized_mdvi_matrix.py:401] Solving (4) by DIGing decentralized optimization...
+[12-17 10:04:15 MainThread @decentralized_mdvi_matrix.py:553]   [优化结果]
+[12-17 10:04:15 MainThread @decentralized_mdvi_matrix.py:554]     训练Epochs: 8
+[12-17 10:04:15 MainThread @decentralized_mdvi_matrix.py:555]     总更新次数: 1256
+[12-17 10:04:15 MainThread @decentralized_mdvi_matrix.py:556]     最终Loss: 0.037877 (std=0.007704)
+[12-17 10:04:15 MainThread @decentralized_mdvi_matrix.py:557]     最终TD_Error: 0.090214 (std=0.015048)
+[12-17 10:04:15 MainThread @decentralized_mdvi_matrix.py:430] Iteration 8 completed: loss=0.0379, td_error=0.0902, consensus_error=0.000165
+[12-17 10:04:15 MainThread @train_mdvi.py:416] 
+=== Iteration 9/50 ===
+[12-17 10:04:15 MainThread @train_mdvi.py:417] ♻️  Reusing 20000 Planning samples (no resampling)
+[12-17 10:04:15 MainThread @decentralized_mdvi_matrix.py:372] 
+=== Fitted Q-Iteration 9/50 ===
+[12-17 10:04:15 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 1/6...
+[12-17 10:04:15 MainThread @decentralized_mdvi_matrix.py:494]   [Agent 0 Target计算调试]
+[12-17 10:04:15 MainThread @decentralized_mdvi_matrix.py:495]     总样本数: 20000
+[12-17 10:04:15 MainThread @decentralized_mdvi_matrix.py:496]     Terminated样本: 20000 (100.0%)
+[12-17 10:04:15 MainThread @decentralized_mdvi_matrix.py:497]     Target统计: mean=-0.1579, std=0.3646, min=-1.0000, max=0.0000
+[12-17 10:04:15 MainThread @decentralized_mdvi_matrix.py:500]     前3个Target: [2.7567148e-07 2.7567148e-07 2.7567148e-07]
+[12-17 10:04:15 MainThread @decentralized_mdvi_matrix.py:501]     前3个Reward: [2.7567148e-07 2.7567148e-07 2.7567148e-07]
+[12-17 10:04:15 MainThread @decentralized_mdvi_matrix.py:502]     Target=Reward: True
+[12-17 10:04:15 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 2/6...
+[12-17 10:04:15 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 3/6...
+[12-17 10:04:15 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 4/6...
+[12-17 10:04:15 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 5/6...
+[12-17 10:04:15 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 6/6...
+[12-17 10:04:15 MainThread @decentralized_mdvi_matrix.py:392] Mean Nash solving time: 0.0000s
+[12-17 10:04:15 MainThread @decentralized_mdvi_matrix.py:396] Nash cache: 100.0% hit rate (119994 hits, 6 misses, 6 cached)
+[12-17 10:04:15 MainThread @decentralized_mdvi_matrix.py:401] Solving (4) by DIGing decentralized optimization...
+[12-17 10:04:23 MainThread @decentralized_mdvi_matrix.py:553]   [优化结果]
+[12-17 10:04:23 MainThread @decentralized_mdvi_matrix.py:554]     训练Epochs: 8
+[12-17 10:04:23 MainThread @decentralized_mdvi_matrix.py:555]     总更新次数: 1256
+[12-17 10:04:23 MainThread @decentralized_mdvi_matrix.py:556]     最终Loss: 0.037316 (std=0.007293)
+[12-17 10:04:23 MainThread @decentralized_mdvi_matrix.py:557]     最终TD_Error: 0.089035 (std=0.014352)
+[12-17 10:04:23 MainThread @decentralized_mdvi_matrix.py:430] Iteration 9 completed: loss=0.0373, td_error=0.0890, consensus_error=0.000061
+[12-17 10:04:23 MainThread @train_mdvi.py:416] 
+=== Iteration 10/50 ===
+[12-17 10:04:23 MainThread @train_mdvi.py:417] ♻️  Reusing 20000 Planning samples (no resampling)
+[12-17 10:04:23 MainThread @decentralized_mdvi_matrix.py:372] 
+=== Fitted Q-Iteration 10/50 ===
+[12-17 10:04:23 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 1/6...
+[12-17 10:04:23 MainThread @decentralized_mdvi_matrix.py:494]   [Agent 0 Target计算调试]
+[12-17 10:04:23 MainThread @decentralized_mdvi_matrix.py:495]     总样本数: 20000
+[12-17 10:04:23 MainThread @decentralized_mdvi_matrix.py:496]     Terminated样本: 20000 (100.0%)
+[12-17 10:04:23 MainThread @decentralized_mdvi_matrix.py:497]     Target统计: mean=-0.1579, std=0.3646, min=-1.0000, max=0.0000
+[12-17 10:04:23 MainThread @decentralized_mdvi_matrix.py:500]     前3个Target: [2.7567148e-07 2.7567148e-07 2.7567148e-07]
+[12-17 10:04:23 MainThread @decentralized_mdvi_matrix.py:501]     前3个Reward: [2.7567148e-07 2.7567148e-07 2.7567148e-07]
+[12-17 10:04:23 MainThread @decentralized_mdvi_matrix.py:502]     Target=Reward: True
+[12-17 10:04:23 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 2/6...
+[12-17 10:04:23 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 3/6...
+[12-17 10:04:23 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 4/6...
+[12-17 10:04:23 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 5/6...
+[12-17 10:04:23 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 6/6...
+[12-17 10:04:23 MainThread @decentralized_mdvi_matrix.py:392] Mean Nash solving time: 0.0000s
+[12-17 10:04:23 MainThread @decentralized_mdvi_matrix.py:396] Nash cache: 100.0% hit rate (119994 hits, 6 misses, 6 cached)
+[12-17 10:04:23 MainThread @decentralized_mdvi_matrix.py:401] Solving (4) by DIGing decentralized optimization...
+[12-17 10:04:31 MainThread @decentralized_mdvi_matrix.py:553]   [优化结果]
+[12-17 10:04:31 MainThread @decentralized_mdvi_matrix.py:554]     训练Epochs: 8
+[12-17 10:04:31 MainThread @decentralized_mdvi_matrix.py:555]     总更新次数: 1256
+[12-17 10:04:31 MainThread @decentralized_mdvi_matrix.py:556]     最终Loss: 0.036597 (std=0.007326)
+[12-17 10:04:31 MainThread @decentralized_mdvi_matrix.py:557]     最终TD_Error: 0.086514 (std=0.014596)
+[12-17 10:04:31 MainThread @decentralized_mdvi_matrix.py:418] Learning rate decayed: 0.000315 -> 0.000299
+[12-17 10:04:31 MainThread @decentralized_mdvi_matrix.py:430] Iteration 10 completed: loss=0.0366, td_error=0.0865, consensus_error=0.000101
+[12-17 10:04:31 MainThread @train_mdvi.py:428] 
+=== Evaluation at Iteration 10 ===
+[12-17 10:04:31 MainThread @train_mdvi.py:429]   Nash distance: 0.816497
+[12-17 10:04:31 MainThread @train_mdvi.py:430]   Learned Nash value: 0.3780 (True: -0.0000)
+[12-17 10:04:31 MainThread @train_mdvi.py:432]   Value error: 0.377952
+
+[12-17 10:04:31 MainThread @train_mdvi.py:416] 
+=== Iteration 11/50 ===
+[12-17 10:04:31 MainThread @train_mdvi.py:417] ♻️  Reusing 20000 Planning samples (no resampling)
+[12-17 10:04:31 MainThread @decentralized_mdvi_matrix.py:372] 
+=== Fitted Q-Iteration 11/50 ===
+[12-17 10:04:31 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 1/6...
+[12-17 10:04:31 MainThread @decentralized_mdvi_matrix.py:494]   [Agent 0 Target计算调试]
+[12-17 10:04:31 MainThread @decentralized_mdvi_matrix.py:495]     总样本数: 20000
+[12-17 10:04:31 MainThread @decentralized_mdvi_matrix.py:496]     Terminated样本: 20000 (100.0%)
+[12-17 10:04:31 MainThread @decentralized_mdvi_matrix.py:497]     Target统计: mean=-0.1579, std=0.3646, min=-1.0000, max=0.0000
+[12-17 10:04:31 MainThread @decentralized_mdvi_matrix.py:500]     前3个Target: [2.7567148e-07 2.7567148e-07 2.7567148e-07]
+[12-17 10:04:31 MainThread @decentralized_mdvi_matrix.py:501]     前3个Reward: [2.7567148e-07 2.7567148e-07 2.7567148e-07]
+[12-17 10:04:31 MainThread @decentralized_mdvi_matrix.py:502]     Target=Reward: True
+[12-17 10:04:31 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 2/6...
+[12-17 10:04:31 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 3/6...
+[12-17 10:04:31 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 4/6...
+[12-17 10:04:31 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 5/6...
+[12-17 10:04:31 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 6/6...
+[12-17 10:04:31 MainThread @decentralized_mdvi_matrix.py:392] Mean Nash solving time: 0.0000s
+[12-17 10:04:31 MainThread @decentralized_mdvi_matrix.py:396] Nash cache: 100.0% hit rate (119994 hits, 9 misses, 9 cached)
+[12-17 10:04:31 MainThread @decentralized_mdvi_matrix.py:401] Solving (4) by DIGing decentralized optimization...
+[12-17 10:04:39 MainThread @decentralized_mdvi_matrix.py:553]   [优化结果]
+[12-17 10:04:39 MainThread @decentralized_mdvi_matrix.py:554]     训练Epochs: 8
+[12-17 10:04:39 MainThread @decentralized_mdvi_matrix.py:555]     总更新次数: 1256
+[12-17 10:04:39 MainThread @decentralized_mdvi_matrix.py:556]     最终Loss: 0.035872 (std=0.007435)
+[12-17 10:04:39 MainThread @decentralized_mdvi_matrix.py:557]     最终TD_Error: 0.081882 (std=0.014945)
+[12-17 10:04:39 MainThread @decentralized_mdvi_matrix.py:430] Iteration 11 completed: loss=0.0359, td_error=0.0819, consensus_error=0.000216
+[12-17 10:04:39 MainThread @train_mdvi.py:416] 
+=== Iteration 12/50 ===
+[12-17 10:04:39 MainThread @train_mdvi.py:417] ♻️  Reusing 20000 Planning samples (no resampling)
+[12-17 10:04:39 MainThread @decentralized_mdvi_matrix.py:372] 
+=== Fitted Q-Iteration 12/50 ===
+[12-17 10:04:39 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 1/6...
+[12-17 10:04:39 MainThread @decentralized_mdvi_matrix.py:494]   [Agent 0 Target计算调试]
+[12-17 10:04:39 MainThread @decentralized_mdvi_matrix.py:495]     总样本数: 20000
+[12-17 10:04:39 MainThread @decentralized_mdvi_matrix.py:496]     Terminated样本: 20000 (100.0%)
+[12-17 10:04:39 MainThread @decentralized_mdvi_matrix.py:497]     Target统计: mean=-0.1579, std=0.3646, min=-1.0000, max=0.0000
+[12-17 10:04:39 MainThread @decentralized_mdvi_matrix.py:500]     前3个Target: [2.7567148e-07 2.7567148e-07 2.7567148e-07]
+[12-17 10:04:39 MainThread @decentralized_mdvi_matrix.py:501]     前3个Reward: [2.7567148e-07 2.7567148e-07 2.7567148e-07]
+[12-17 10:04:39 MainThread @decentralized_mdvi_matrix.py:502]     Target=Reward: True
+[12-17 10:04:39 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 2/6...
+[12-17 10:04:39 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 3/6...
+[12-17 10:04:39 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 4/6...
+[12-17 10:04:39 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 5/6...
+[12-17 10:04:39 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 6/6...
+[12-17 10:04:39 MainThread @decentralized_mdvi_matrix.py:392] Mean Nash solving time: 0.0000s
+[12-17 10:04:39 MainThread @decentralized_mdvi_matrix.py:396] Nash cache: 100.0% hit rate (119994 hits, 9 misses, 9 cached)
+[12-17 10:04:39 MainThread @decentralized_mdvi_matrix.py:401] Solving (4) by DIGing decentralized optimization...
+[12-17 10:04:47 MainThread @decentralized_mdvi_matrix.py:553]   [优化结果]
+[12-17 10:04:47 MainThread @decentralized_mdvi_matrix.py:554]     训练Epochs: 8
+[12-17 10:04:47 MainThread @decentralized_mdvi_matrix.py:555]     总更新次数: 1256
+[12-17 10:04:47 MainThread @decentralized_mdvi_matrix.py:556]     最终Loss: 0.034898 (std=0.007194)
+[12-17 10:04:47 MainThread @decentralized_mdvi_matrix.py:557]     最终TD_Error: 0.080777 (std=0.014621)
+[12-17 10:04:47 MainThread @decentralized_mdvi_matrix.py:430] Iteration 12 completed: loss=0.0349, td_error=0.0808, consensus_error=0.000136
+[12-17 10:04:47 MainThread @train_mdvi.py:416] 
+=== Iteration 13/50 ===
+[12-17 10:04:47 MainThread @train_mdvi.py:417] ♻️  Reusing 20000 Planning samples (no resampling)
+[12-17 10:04:47 MainThread @decentralized_mdvi_matrix.py:372] 
+=== Fitted Q-Iteration 13/50 ===
+[12-17 10:04:47 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 1/6...
+[12-17 10:04:47 MainThread @decentralized_mdvi_matrix.py:494]   [Agent 0 Target计算调试]
+[12-17 10:04:47 MainThread @decentralized_mdvi_matrix.py:495]     总样本数: 20000
+[12-17 10:04:47 MainThread @decentralized_mdvi_matrix.py:496]     Terminated样本: 20000 (100.0%)
+[12-17 10:04:47 MainThread @decentralized_mdvi_matrix.py:497]     Target统计: mean=-0.1579, std=0.3646, min=-1.0000, max=0.0000
+[12-17 10:04:47 MainThread @decentralized_mdvi_matrix.py:500]     前3个Target: [2.7567148e-07 2.7567148e-07 2.7567148e-07]
+[12-17 10:04:47 MainThread @decentralized_mdvi_matrix.py:501]     前3个Reward: [2.7567148e-07 2.7567148e-07 2.7567148e-07]
+[12-17 10:04:47 MainThread @decentralized_mdvi_matrix.py:502]     Target=Reward: True
+[12-17 10:04:47 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 2/6...
+[12-17 10:04:47 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 3/6...
+[12-17 10:04:47 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 4/6...
+[12-17 10:04:47 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 5/6...
+[12-17 10:04:47 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 6/6...
+[12-17 10:04:47 MainThread @decentralized_mdvi_matrix.py:392] Mean Nash solving time: 0.0000s
+[12-17 10:04:47 MainThread @decentralized_mdvi_matrix.py:396] Nash cache: 100.0% hit rate (119994 hits, 9 misses, 9 cached)
+[12-17 10:04:47 MainThread @decentralized_mdvi_matrix.py:401] Solving (4) by DIGing decentralized optimization...
+[12-17 10:04:55 MainThread @decentralized_mdvi_matrix.py:553]   [优化结果]
+[12-17 10:04:55 MainThread @decentralized_mdvi_matrix.py:554]     训练Epochs: 8
+[12-17 10:04:55 MainThread @decentralized_mdvi_matrix.py:555]     总更新次数: 1256
+[12-17 10:04:55 MainThread @decentralized_mdvi_matrix.py:556]     最终Loss: 0.033903 (std=0.006890)
+[12-17 10:04:55 MainThread @decentralized_mdvi_matrix.py:557]     最终TD_Error: 0.079412 (std=0.014101)
+[12-17 10:04:55 MainThread @decentralized_mdvi_matrix.py:430] Iteration 13 completed: loss=0.0339, td_error=0.0794, consensus_error=0.000249
+[12-17 10:04:55 MainThread @train_mdvi.py:416] 
+=== Iteration 14/50 ===
+[12-17 10:04:55 MainThread @train_mdvi.py:417] ♻️  Reusing 20000 Planning samples (no resampling)
+[12-17 10:04:55 MainThread @decentralized_mdvi_matrix.py:372] 
+=== Fitted Q-Iteration 14/50 ===
+[12-17 10:04:55 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 1/6...
+[12-17 10:04:55 MainThread @decentralized_mdvi_matrix.py:494]   [Agent 0 Target计算调试]
+[12-17 10:04:55 MainThread @decentralized_mdvi_matrix.py:495]     总样本数: 20000
+[12-17 10:04:55 MainThread @decentralized_mdvi_matrix.py:496]     Terminated样本: 20000 (100.0%)
+[12-17 10:04:55 MainThread @decentralized_mdvi_matrix.py:497]     Target统计: mean=-0.1579, std=0.3646, min=-1.0000, max=0.0000
+[12-17 10:04:55 MainThread @decentralized_mdvi_matrix.py:500]     前3个Target: [2.7567148e-07 2.7567148e-07 2.7567148e-07]
+[12-17 10:04:55 MainThread @decentralized_mdvi_matrix.py:501]     前3个Reward: [2.7567148e-07 2.7567148e-07 2.7567148e-07]
+[12-17 10:04:55 MainThread @decentralized_mdvi_matrix.py:502]     Target=Reward: True
+[12-17 10:04:55 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 2/6...
+[12-17 10:04:55 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 3/6...
+[12-17 10:04:55 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 4/6...
+[12-17 10:04:55 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 5/6...
+[12-17 10:04:55 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 6/6...
+[12-17 10:04:55 MainThread @decentralized_mdvi_matrix.py:392] Mean Nash solving time: 0.0000s
+[12-17 10:04:55 MainThread @decentralized_mdvi_matrix.py:396] Nash cache: 100.0% hit rate (119994 hits, 9 misses, 9 cached)
+[12-17 10:04:55 MainThread @decentralized_mdvi_matrix.py:401] Solving (4) by DIGing decentralized optimization...
+[12-17 10:05:03 MainThread @decentralized_mdvi_matrix.py:553]   [优化结果]
+[12-17 10:05:03 MainThread @decentralized_mdvi_matrix.py:554]     训练Epochs: 8
+[12-17 10:05:03 MainThread @decentralized_mdvi_matrix.py:555]     总更新次数: 1256
+[12-17 10:05:03 MainThread @decentralized_mdvi_matrix.py:556]     最终Loss: 0.033291 (std=0.006864)
+[12-17 10:05:03 MainThread @decentralized_mdvi_matrix.py:557]     最终TD_Error: 0.076980 (std=0.014142)
+[12-17 10:05:03 MainThread @decentralized_mdvi_matrix.py:430] Iteration 14 completed: loss=0.0333, td_error=0.0770, consensus_error=0.000169
+[12-17 10:05:03 MainThread @train_mdvi.py:416] 
+=== Iteration 15/50 ===
+[12-17 10:05:03 MainThread @train_mdvi.py:417] ♻️  Reusing 20000 Planning samples (no resampling)
+[12-17 10:05:03 MainThread @decentralized_mdvi_matrix.py:372] 
+=== Fitted Q-Iteration 15/50 ===
+[12-17 10:05:03 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 1/6...
+[12-17 10:05:03 MainThread @decentralized_mdvi_matrix.py:494]   [Agent 0 Target计算调试]
+[12-17 10:05:03 MainThread @decentralized_mdvi_matrix.py:495]     总样本数: 20000
+[12-17 10:05:03 MainThread @decentralized_mdvi_matrix.py:496]     Terminated样本: 20000 (100.0%)
+[12-17 10:05:03 MainThread @decentralized_mdvi_matrix.py:497]     Target统计: mean=-0.1579, std=0.3646, min=-1.0000, max=0.0000
+[12-17 10:05:03 MainThread @decentralized_mdvi_matrix.py:500]     前3个Target: [2.7567148e-07 2.7567148e-07 2.7567148e-07]
+[12-17 10:05:03 MainThread @decentralized_mdvi_matrix.py:501]     前3个Reward: [2.7567148e-07 2.7567148e-07 2.7567148e-07]
+[12-17 10:05:03 MainThread @decentralized_mdvi_matrix.py:502]     Target=Reward: True
+[12-17 10:05:03 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 2/6...
+[12-17 10:05:03 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 3/6...
+[12-17 10:05:03 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 4/6...
+[12-17 10:05:03 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 5/6...
+[12-17 10:05:03 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 6/6...
+[12-17 10:05:03 MainThread @decentralized_mdvi_matrix.py:392] Mean Nash solving time: 0.0000s
+[12-17 10:05:03 MainThread @decentralized_mdvi_matrix.py:396] Nash cache: 100.0% hit rate (119994 hits, 9 misses, 9 cached)
+[12-17 10:05:03 MainThread @decentralized_mdvi_matrix.py:401] Solving (4) by DIGing decentralized optimization...
+[12-17 10:05:12 MainThread @decentralized_mdvi_matrix.py:553]   [优化结果]
+[12-17 10:05:12 MainThread @decentralized_mdvi_matrix.py:554]     训练Epochs: 8
+[12-17 10:05:12 MainThread @decentralized_mdvi_matrix.py:555]     总更新次数: 1256
+[12-17 10:05:12 MainThread @decentralized_mdvi_matrix.py:556]     最终Loss: 0.032800 (std=0.006607)
+[12-17 10:05:12 MainThread @decentralized_mdvi_matrix.py:557]     最终TD_Error: 0.073164 (std=0.013704)
+[12-17 10:05:12 MainThread @decentralized_mdvi_matrix.py:430] Iteration 15 completed: loss=0.0328, td_error=0.0732, consensus_error=0.000117
+[12-17 10:05:12 MainThread @train_mdvi.py:416] 
+=== Iteration 16/50 ===
+[12-17 10:05:12 MainThread @train_mdvi.py:417] ♻️  Reusing 20000 Planning samples (no resampling)
+[12-17 10:05:12 MainThread @decentralized_mdvi_matrix.py:372] 
+=== Fitted Q-Iteration 16/50 ===
+[12-17 10:05:12 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 1/6...
+[12-17 10:05:12 MainThread @decentralized_mdvi_matrix.py:494]   [Agent 0 Target计算调试]
+[12-17 10:05:12 MainThread @decentralized_mdvi_matrix.py:495]     总样本数: 20000
+[12-17 10:05:12 MainThread @decentralized_mdvi_matrix.py:496]     Terminated样本: 20000 (100.0%)
+[12-17 10:05:12 MainThread @decentralized_mdvi_matrix.py:497]     Target统计: mean=-0.1579, std=0.3646, min=-1.0000, max=0.0000
+[12-17 10:05:12 MainThread @decentralized_mdvi_matrix.py:500]     前3个Target: [2.7567148e-07 2.7567148e-07 2.7567148e-07]
+[12-17 10:05:12 MainThread @decentralized_mdvi_matrix.py:501]     前3个Reward: [2.7567148e-07 2.7567148e-07 2.7567148e-07]
+[12-17 10:05:12 MainThread @decentralized_mdvi_matrix.py:502]     Target=Reward: True
+[12-17 10:05:12 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 2/6...
+[12-17 10:05:12 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 3/6...
+[12-17 10:05:12 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 4/6...
+[12-17 10:05:12 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 5/6...
+[12-17 10:05:12 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 6/6...
+[12-17 10:05:12 MainThread @decentralized_mdvi_matrix.py:392] Mean Nash solving time: 0.0000s
+[12-17 10:05:12 MainThread @decentralized_mdvi_matrix.py:396] Nash cache: 100.0% hit rate (119994 hits, 9 misses, 9 cached)
+[12-17 10:05:12 MainThread @decentralized_mdvi_matrix.py:401] Solving (4) by DIGing decentralized optimization...
+[12-17 10:05:20 MainThread @decentralized_mdvi_matrix.py:553]   [优化结果]
+[12-17 10:05:20 MainThread @decentralized_mdvi_matrix.py:554]     训练Epochs: 8
+[12-17 10:05:20 MainThread @decentralized_mdvi_matrix.py:555]     总更新次数: 1256
+[12-17 10:05:20 MainThread @decentralized_mdvi_matrix.py:556]     最终Loss: 0.032450 (std=0.006543)
+[12-17 10:05:20 MainThread @decentralized_mdvi_matrix.py:557]     最终TD_Error: 0.071479 (std=0.013528)
+[12-17 10:05:20 MainThread @decentralized_mdvi_matrix.py:430] Iteration 16 completed: loss=0.0325, td_error=0.0715, consensus_error=0.000142
+[12-17 10:05:20 MainThread @train_mdvi.py:416] 
+=== Iteration 17/50 ===
+[12-17 10:05:20 MainThread @train_mdvi.py:417] ♻️  Reusing 20000 Planning samples (no resampling)
+[12-17 10:05:20 MainThread @decentralized_mdvi_matrix.py:372] 
+=== Fitted Q-Iteration 17/50 ===
+[12-17 10:05:20 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 1/6...
+[12-17 10:05:20 MainThread @decentralized_mdvi_matrix.py:494]   [Agent 0 Target计算调试]
+[12-17 10:05:20 MainThread @decentralized_mdvi_matrix.py:495]     总样本数: 20000
+[12-17 10:05:20 MainThread @decentralized_mdvi_matrix.py:496]     Terminated样本: 20000 (100.0%)
+[12-17 10:05:20 MainThread @decentralized_mdvi_matrix.py:497]     Target统计: mean=-0.1579, std=0.3646, min=-1.0000, max=0.0000
+[12-17 10:05:20 MainThread @decentralized_mdvi_matrix.py:500]     前3个Target: [2.7567148e-07 2.7567148e-07 2.7567148e-07]
+[12-17 10:05:20 MainThread @decentralized_mdvi_matrix.py:501]     前3个Reward: [2.7567148e-07 2.7567148e-07 2.7567148e-07]
+[12-17 10:05:20 MainThread @decentralized_mdvi_matrix.py:502]     Target=Reward: True
+[12-17 10:05:20 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 2/6...
+[12-17 10:05:20 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 3/6...
+[12-17 10:05:20 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 4/6...
+[12-17 10:05:20 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 5/6...
+[12-17 10:05:20 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 6/6...
+[12-17 10:05:20 MainThread @decentralized_mdvi_matrix.py:392] Mean Nash solving time: 0.0000s
+[12-17 10:05:20 MainThread @decentralized_mdvi_matrix.py:396] Nash cache: 100.0% hit rate (119994 hits, 9 misses, 9 cached)
+[12-17 10:05:20 MainThread @decentralized_mdvi_matrix.py:401] Solving (4) by DIGing decentralized optimization...
+[12-17 10:05:28 MainThread @decentralized_mdvi_matrix.py:553]   [优化结果]
+[12-17 10:05:28 MainThread @decentralized_mdvi_matrix.py:554]     训练Epochs: 8
+[12-17 10:05:28 MainThread @decentralized_mdvi_matrix.py:555]     总更新次数: 1256
+[12-17 10:05:28 MainThread @decentralized_mdvi_matrix.py:556]     最终Loss: 0.032256 (std=0.006416)
+[12-17 10:05:28 MainThread @decentralized_mdvi_matrix.py:557]     最终TD_Error: 0.071034 (std=0.013278)
+[12-17 10:05:28 MainThread @decentralized_mdvi_matrix.py:430] Iteration 17 completed: loss=0.0323, td_error=0.0710, consensus_error=0.000051
+[12-17 10:05:28 MainThread @train_mdvi.py:416] 
+=== Iteration 18/50 ===
+[12-17 10:05:28 MainThread @train_mdvi.py:417] ♻️  Reusing 20000 Planning samples (no resampling)
+[12-17 10:05:28 MainThread @decentralized_mdvi_matrix.py:372] 
+=== Fitted Q-Iteration 18/50 ===
+[12-17 10:05:28 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 1/6...
+[12-17 10:05:28 MainThread @decentralized_mdvi_matrix.py:494]   [Agent 0 Target计算调试]
+[12-17 10:05:28 MainThread @decentralized_mdvi_matrix.py:495]     总样本数: 20000
+[12-17 10:05:28 MainThread @decentralized_mdvi_matrix.py:496]     Terminated样本: 20000 (100.0%)
+[12-17 10:05:28 MainThread @decentralized_mdvi_matrix.py:497]     Target统计: mean=-0.1579, std=0.3646, min=-1.0000, max=0.0000
+[12-17 10:05:28 MainThread @decentralized_mdvi_matrix.py:500]     前3个Target: [2.7567148e-07 2.7567148e-07 2.7567148e-07]
+[12-17 10:05:28 MainThread @decentralized_mdvi_matrix.py:501]     前3个Reward: [2.7567148e-07 2.7567148e-07 2.7567148e-07]
+[12-17 10:05:28 MainThread @decentralized_mdvi_matrix.py:502]     Target=Reward: True
+[12-17 10:05:28 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 2/6...
+[12-17 10:05:28 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 3/6...
+[12-17 10:05:28 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 4/6...
+[12-17 10:05:28 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 5/6...
+[12-17 10:05:28 MainThread @decentralized_mdvi_matrix.py:382] Computing targets for agent 6/6...
+[12-17 10:05:28 MainThread @decentralized_mdvi_matrix.py:392] Mean Nash solving time: 0.0000s
+[12-17 10:05:28 MainThread @decentralized_mdvi_matrix.py:396] Nash cache: 100.0% hit rate (119994 hits, 9 misses, 9 cached)
+[12-17 10:05:28 MainThread @decentralized_mdvi_matrix.py:401] Solving (4) by DIGing decentralized optimization...
