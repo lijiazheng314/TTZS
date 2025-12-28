@@ -14,14 +14,6 @@ import paddle.nn.functional as F
 
 
 class TransitionNetwork(nn.Layer):
-    """用神经网络拟合状态转移 P(s'|s,a,b)
-    
-    对于Shapley两阶段博弈:
-    - 第一阶段: (s0, a1, b1) -> s1 (s1包含a1,b1的编码)
-    - 第二阶段: (s1, a2, b2) -> s0 (重置)
-    
-    注意: 这里的state是全局状态,不是agent的局部观测obs!
-    """
     
     def __init__(self, state_shape, n_actions_team1, n_actions_team2, hidden_dim=64):
         super().__init__()
@@ -57,14 +49,6 @@ class TransitionNetwork(nn.Layer):
 
 
 class RewardNetwork(nn.Layer):
-    """用神经网络拟合奖励函数 R(all_states, all_current_actions_team1, all_current_actions_team2)
-    
-    关键设计:
-    - all_states: 所有对的状态(拼接)
-    - all_actions: 当前两队所有动作
-    - 支持cooperation_weight混合奖励
-    - 网络内部不区分own_state,直接处理all_states
-    """
     
     def __init__(self, state_shape, n_actions_team1, n_actions_team2, n_agents_team1=3, n_agents_team2=3, hidden_dim=256):
         super().__init__()
@@ -102,13 +86,6 @@ class RewardNetwork(nn.Layer):
 
 
 class EnvironmentModel(nn.Layer):
-    """
-    环境模型: MG = (S, A, B, P, R1, R2, γ)
-    
-    包括:
-    1. 状态转移模型: P(s'|s,a,b) - 用神经网络拟合
-    2. 奖励模型: R(s,a,b) - 用神经网络拟合
-    """
     
     def __init__(self, obs_shape, state_shape, n_actions_team1, n_actions_team2, hidden_dim=64):
         super().__init__()
@@ -538,7 +515,6 @@ class EnvironmentModel(nn.Layer):
         return float(pred_reward.squeeze())
     
     def get_lookup_stats(self):
-        """获取查表统计信息"""
         if self.lookup_total == 0:
             return {"hit_rate": 0.0, "hits": 0, "total": 0}
         return {

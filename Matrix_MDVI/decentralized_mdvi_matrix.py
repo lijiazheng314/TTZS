@@ -29,13 +29,6 @@ from diging_optimizer import ConsensusMatrix, DIGingWrapper
 # ============================================================================
 
 class SimpleQNetwork(Model):
-    """
-    简化Q网络 - 适用于矩阵博弈
-    Q^{i,k}(s, a, b) 对于智能体 i ∈ Team 1
-    
-    输入: 状态(obs) + Team1动作(one-hot) + Team2动作(one-hot)
-    输出: Q值(标量)
-    """
     
     def __init__(self, obs_shape, n_actions_team1, n_actions_team2, hidden_dim=64):
         super(SimpleQNetwork, self).__init__()
@@ -62,17 +55,6 @@ class SimpleQNetwork(Model):
         nn.initializer.Uniform(low=-0.05, high=0.05)(self.fc3.bias)  # 从±0.1改为±0.05
     
     def forward(self, obs, action_team1, action_team2):
-        """
-        前向传播
-        
-        Args:
-            obs: [batch, obs_shape]
-            action_team1: [batch] 动作索引
-            action_team2: [batch] 动作索引
-            
-        Returns:
-            q_value: [batch, 1]
-        """
         # 检查输入维度
         if obs.shape[-1] != self.obs_shape:
             raise ValueError(f"obs维度不匹配! 得到{obs.shape[-1]}, 期望{self.obs_shape}")
@@ -102,16 +84,6 @@ class SimpleQNetwork(Model):
         return q_value
     
     def evaluate_all_actions(self, obs, n_actions_team2=None):
-        """
-        评估所有动作组合的Q矩阵: Q^{i,k}(s, a, b)
-        
-        Args:
-            obs: [batch, obs_shape]
-            n_actions_team2: Team 2动作数(默认为self.n_actions_team2)
-            
-        Returns:
-            q_matrix: [batch, n_actions_team1, n_actions_team2]
-        """
         if n_actions_team2 is None:
             n_actions_team2 = self.n_actions_team2
         
@@ -134,14 +106,6 @@ class SimpleQNetwork(Model):
 # ============================================================================
 
 class MatrixGameNashSolver:
-    """
-    求解矩阵博弈的纳什均衡
-    max_{π'∈P(A)} min_{σ'∈P(B)} E_{π',σ'}[Q^{i,k}_k(s_{t+1}, a, b)]
-    
-    优化:
-    1. 使用'highs-ipm'更快的求解器
-    2. 缓存重复Q矩阵的Nash解
-    """
     
     def __init__(self, method='linprog', cache_size=10000):
         self.method = method
@@ -152,24 +116,11 @@ class MatrixGameNashSolver:
         self.cache_misses = 0
     
     def _hash_q_matrix(self, q_matrix, precision=4):
-        """将Q矩阵转为hash键 (保疙51e-4精度)"""
         # 四舍五入到指定精度后转为tuple
         rounded = np.round(q_matrix, decimals=precision)
         return tuple(rounded.flatten())
     
     def solve_nash_equilibrium(self, q_matrix):
-        """
-        求解纳什均衡策略 (带缓存)
-        
-        Args:
-            q_matrix: [n_actions_A, n_actions_B] Q矩阵
-        
-        Returns:
-            pi_nash: [n_actions_A] Team 1的均衡策略 π'_k
-            sigma_nash: [n_actions_B] Team 2的均衡策略 σ'_k  
-            nash_value: float 均衡值
-            solve_time: float 求解时间
-        """
         start_time = time.time()
         
         # 尝试从缓存中获取
@@ -194,7 +145,6 @@ class MatrixGameNashSolver:
         return pi_nash, sigma_nash, nash_value, solve_time
     
     def _solve_maximin_lp(self, q_matrix):
-        """线性规划求解Team 1的maximin策略 (优化: 使用highs-ipm求解器)"""
         n_actions_a, n_actions_b = q_matrix.shape
         
         # 目标函数: min -v
@@ -243,7 +193,6 @@ class MatrixGameNashSolver:
         return pi_nash, nash_value
     
     def _solve_minimax_lp(self, q_matrix):
-        """线性规划求解Team 2的minimax策略 (优化: 使用highs-ipm求解器)"""
         n_actions_a, n_actions_b = q_matrix.shape
         
         c = np.zeros(n_actions_b + 1)
@@ -286,11 +235,9 @@ class MatrixGameNashSolver:
         return sigma_nash, minimax_value
     
     def compute_expected_value(self, q_matrix, pi, sigma):
-        """计算期望Q值: E[Q] = π^T * Q * σ"""
         return float(np.dot(pi, np.dot(q_matrix, sigma)))
     
     def get_cache_stats(self):
-        """获取缓存统计信息"""
         total = self.cache_hits + self.cache_misses
         hit_rate = self.cache_hits / total if total > 0 else 0
         return {
@@ -306,21 +253,6 @@ class MatrixGameNashSolver:
 # ============================================================================
 
 class DecentralizedFQIAlgorithm:
-    """
-    去中心化拟合Q迭代算法
-    
-    Algorithm 1: Decentralized Fitted Q-Iteration Algorithm
-    
-    Input:
-        - Function class H
-        - Trajectory data D = {(s_t, {a^i_t}, {b^j_t}, s_{t+1})}
-        - Number of iterations K
-        - Initial estimator vectors Q^{i,0}_0
-    
-    Output:
-        - Vector of estimates Q^1_K = [Q^{i,1}_K]_{i∈N}
-        - Joint equilibrium policy π_K = E^1(Q^1_K)
-    """
     
     def __init__(self, config):
         self.config = config
@@ -380,19 +312,6 @@ class DecentralizedFQIAlgorithm:
         self.policy_entropy_history = []  # 【新增】Policy Entropy历史
     
     def run_iteration(self, trajectory_data):
-        """
-        执行一次拟合Q迭代 (Algorithm 1的主循环内容)
-        
-        for k = 0, 1, 2, ..., K-1 do:
-            for agent i ∈ N in Team 1 do:
-                1. Solve matrix game to get (π'_k, σ'_k)
-                2. Sample r^{1,i}_t ~ R^{1,i}(·| s_t, a_t, b_t)
-                3. Compute local target Y^i_t
-            end for
-            4. Solve (4) by decentralized optimization (DIGing)
-            5. Update estimate Q^{1,i}_{k+1}
-        end for
-        """
         logger.info(f"\n=== Fitted Q-Iteration {self.iteration_count + 1}/{self.K_iterations} ===")
         
         iteration_losses = []
@@ -448,6 +367,13 @@ class DecentralizedFQIAlgorithm:
         self.loss_history.append(loss)
         self.td_error_history.append(td_error)
         
+        # 【新增】平滑处理Loss，减少batch采样造成的波动
+        if len(self.loss_history) >= 3:
+            # 使用3轮的移动平均来减少随机波动
+            smoothed_loss = np.mean(self.loss_history[-3:])
+            if self.iteration_count % 10 == 0:
+                logger.info(f"  [Loss统计] 原始Loss={loss:.6f}, 平滑Loss={smoothed_loss:.6f} (3轮平均)")
+        
         # 计算共识误差
         consensus_error = self.diging_optimizer.get_consensus_error()
         
@@ -468,11 +394,6 @@ class DecentralizedFQIAlgorithm:
         }
     
     def _compute_targets_for_agent(self, trajectory_data, agent_id):
-        """
-        计算智能体i的TD目标
-        
-        Y^i_t = r^{1,i}_t + γ · E_{π'_k,σ'_k}[Q^{i,k}_k(s_{t+1}, a, b)]
-        """
         n_transitions = len(trajectory_data['rewards'])
         targets = np.zeros(n_transitions, dtype=np.float32)
         
@@ -505,13 +426,15 @@ class DecentralizedFQIAlgorithm:
                 #     q_matrix_next, pi_nash, sigma_nash
                 # )
                 
-                # 【新方法：使用Softmax策略计算期望Q值】
+                # 【方法1：使用softmax策略计算期望Q值】
                 # 对每个自己的动作，计算对对手动作的期望Q值
                 q_expected_team1 = np.mean(q_matrix_next, axis=1)  # [n_actions_team1]
                 q_expected_team2 = np.mean(q_matrix_next, axis=0)  # [n_actions_team2]
                 
-                # 使用softmax转换为概率分布
-                temperature = 0.5  # 降低温度，让策略对Q值差异更敏感
+                # 使用softmax转换为概率分布 - 自适应温度
+                # 温度策略：前期高温（探索），后期低温（利用）
+                temperature = max(0.3, 1.0 - self.iteration_count / 120.0 * 0.7)  # 1.0→0.3
+                
                 q_exp_t1 = np.exp((q_expected_team1 - np.max(q_expected_team1)) / temperature)
                 pi_softmax = q_exp_t1 / np.sum(q_exp_t1)
                 
@@ -590,11 +513,6 @@ class DecentralizedFQIAlgorithm:
         return targets, avg_nash_time
     
     def _optimize_by_diging(self, trajectory_data, all_targets):
-        """
-        使用DIGing算法求解优化问题 (4)
-        
-        Solve (4) for agents in Team 1, by decentralized optimization algorithms
-        """
         n_transitions = len(trajectory_data['rewards'])
         indices = list(range(n_transitions))
         
@@ -706,7 +624,6 @@ class DecentralizedFQIAlgorithm:
         return final_loss, final_td_error
     
     def _compute_agent_loss(self, trajectory_data, targets, agent_id, batch_indices):
-        """计算单个智能体的损失"""
         q_network = self.q_networks[agent_id]
         
         obs_batch = trajectory_data['observations'][batch_indices, agent_id]
@@ -757,7 +674,6 @@ class DecentralizedFQIAlgorithm:
         return loss, paddle.mean(paddle.abs(td_error))
     
     def _check_convergence(self):
-        """检测训练是否在有效收敛"""
         k = self.iteration_count
         current_loss = self.loss_history[-1]
         current_td = self.td_error_history[-1]
@@ -782,10 +698,6 @@ class DecentralizedFQIAlgorithm:
             #     logger.warning(f"  ⚠ Loss未下降, 检查学习率或数据质量")
     
     def extract_policy(self, obs, agent_id, available_actions=None):
-        """
-        提取策略 (使用纳什均衡)
-        Joint equilibrium policy π_K = E^1(Q^1_K)
-        """
         q_network = self.q_networks[agent_id]
         
         obs_tensor = paddle.to_tensor(obs[np.newaxis, :], dtype='float32')
@@ -817,7 +729,6 @@ class DecentralizedFQIAlgorithm:
         return action
     
     def save_models(self, save_dir, iteration=None):
-        """保存模型和训练历史"""
         if not os.path.exists(save_dir):
             os.makedirs(save_dir)
         
@@ -835,6 +746,8 @@ class DecentralizedFQIAlgorithm:
             'loss_history': self.loss_history,
             'td_error_history': self.td_error_history,
             'eval_reward_history': self.eval_reward_history,
+            'value_error_history': self.value_error_history,
+            'policy_entropy_history': self.policy_entropy_history,
             'iteration_count': self.iteration_count
         }
         history_path = os.path.join(save_dir, 'training_history.pkl')
@@ -844,7 +757,6 @@ class DecentralizedFQIAlgorithm:
         logger.info(f"Models saved to {save_dir}")
     
     def load_models(self, save_dir, iteration=None):
-        """加载模型"""
         for i, q_network in enumerate(self.q_networks):
             if iteration is not None:
                 model_path = os.path.join(save_dir, f'agent_{i}_iter_{iteration}.pdparams')

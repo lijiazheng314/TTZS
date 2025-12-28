@@ -25,7 +25,6 @@ from environment_model import EnvironmentModel  # 导入环境模型
 
 
 class MatrixGameBuffer:
-    """矩阵博弈样本缓冲区"""
     
     def __init__(self, capacity, obs_shape, n_agents):
         self.capacity = capacity
@@ -44,11 +43,9 @@ class MatrixGameBuffer:
         self.position = 0
     
     def __len__(self):
-        """返回当前样本数量"""
         return self.count
     
     def add(self, obs, next_obs, team1_actions, team2_actions, rewards, terminated):
-        """添加样本"""
         idx = self.position
         
         self.observations[idx] = obs
@@ -62,7 +59,6 @@ class MatrixGameBuffer:
         self.count = min(self.count + 1, self.capacity)
     
     def get_all(self):
-        """获取所有有效样本"""
         return {
             'observations': self.observations[:self.count],
             'next_observations': self.next_observations[:self.count],
@@ -293,8 +289,7 @@ def evaluate_nash_distance(env, algorithm, show_q_matrix=False):
     return nash_distance, nash_value_avg, policy_entropy_avg
 
 
-def plot_convergence_curves(algorithm, env, save_dir):
-    """绘制收敛曲线 - 使用4个改进指标"""
+def plot_convergence_curves(algorithm, env, save_dir, suffix=''):
     import matplotlib
     matplotlib.use('Agg')
     import matplotlib.pyplot as plt
@@ -349,7 +344,7 @@ def plot_convergence_curves(algorithm, env, save_dir):
     
     plt.tight_layout()
     
-    plot_path = os.path.join(save_dir, 'convergence_curves.png')
+    plot_path = os.path.join(save_dir, f'convergence_curves{suffix}.png')
     plt.savefig(plot_path, dpi=150, bbox_inches='tight')
     logger.info(f"✓ Convergence curves saved: {plot_path}")
     plt.close()
@@ -397,6 +392,11 @@ def main():
     config['obs_shape'] = env.obs_shape
     config['state_shape'] = env.state_shape
     config['n_agents'] = env.n_agents
+    
+    # 【关键】重新设置种子，确保fqi和MDVI的Q网络初始化完全一致
+    # 环境创建可能消耗了随机状态，需要重新同步
+    np.random.seed(config['seed'])
+    paddle.seed(config['seed'])
     
     # 创建算法
     algorithm = DecentralizedFQIAlgorithm(config)
@@ -469,6 +469,8 @@ def main():
     
     # 【新增】给Q网络加偏置，让初始策略偏离Nash均衡
     logger.info(f"\n[添加初始偏置以显示学习过程]")
+    # 【关键】重新设置种子，保证偏置的随机性与FQI一致
+    np.random.seed(config['seed'] + 999)  # 使用不同的种子偏移，但FQI和MDVI一致
     # 给每个Q网络的输出层bias加一个偏置，让初始Q值更不对称
     for agent_id in range(algorithm.n_agents):
         with paddle.no_grad():
@@ -477,7 +479,7 @@ def main():
             algorithm.q_networks[agent_id].fc3.bias.set_value(
                 algorithm.q_networks[agent_id].fc3.bias.numpy() + bias_offset
             )
-    logger.info(f"  已为{algorithm.n_agents}个Q网络添加随机偏置（范围±1.5）")
+    logger.info(f"  已为{algorithm.n_agents}个Q网络添加随机偏置（范围±1.5，seed={config['seed']+999}）")
     
     # 重新检查加偏置后的Q矩阵
     with paddle.no_grad():
@@ -510,33 +512,36 @@ def main():
             logger.info(f"  Reward source: Model prediction (NN)")
             logger.info(f"  Transition source: Model prediction (NN)")
             
-            # 【修改】累积混合模式
-            if planning_buffer is None or not config.get('cumulative_exploration', False):
-                # 第一次或非累积模式: 创建新buffer
-                logger.info(f"  Mode: Creating new buffer (capacity={config['Np_planning_samples']})")
+            # 【修改】渐进式数据混合，减少突变
+            if planning_buffer is None:
+                # 第一次：创建新buffer
+                logger.info(f"  Mode: Creating initial buffer")
                 planning_buffer = MatrixGameBuffer(
                     capacity=config['Np_planning_samples'],
                     obs_shape=env.obs_shape,
                     n_agents=env.n_agents
                 )
             else:
-                # 累积模式: 扩大buffer容量以容纳新数据
+                # 后续次：保留70%旧数据 + 30%新数据（保守更新，防止突变）
                 old_size = len(planning_buffer)
-                new_capacity = old_size + config['Np_planning_samples']
-                logger.info(f"  Mode: Cumulative mixing (old={old_size}, new={config['Np_planning_samples']}, total={new_capacity})")
+                keep_ratio = 0.7  # 保留70%旧数据
+                keep_size = int(old_size * keep_ratio)
+                new_size = int(config['Np_planning_samples'] * (1 - keep_ratio))  # 30%新数据
+                logger.info(f"  Mode: Conservative mixing (keep {keep_size} old [{keep_ratio*100:.0f}%] + add {new_size} new [{(1-keep_ratio)*100:.0f}%])")
                 
                 # 保存旧数据
                 old_data = planning_buffer.get_all()
                 
-                # 创建更大的buffer
+                # 创建新buffer
                 planning_buffer = MatrixGameBuffer(
-                    capacity=new_capacity,
+                    capacity=keep_size + new_size,
                     obs_shape=env.obs_shape,
                     n_agents=env.n_agents
                 )
                 
-                # 恢复旧数据
-                for i in range(old_size):
+                # 恢复最近的70%旧数据
+                start_idx = old_size - keep_size
+                for i in range(start_idx, old_size):
                     planning_buffer.add(
                         old_data['observations'][i],
                         old_data['next_observations'][i],
@@ -545,6 +550,7 @@ def main():
                         old_data['rewards'][i],
                         old_data['terminated'][i]
                     )
+                logger.info(f"  Restored {keep_size} recent samples from old buffer ({keep_ratio*100:.0f}%)")
             
             for episode in range(config['Np_planning_samples']):
                 # 从环境重置获取初始状态
@@ -680,38 +686,6 @@ def main():
             
             logger.info(f"Planning complete: Generated {len(planning_buffer)} model samples")
             
-            # 【新增】滑动窗口机制: 限制buffer大小
-            if config.get('use_sliding_window', False) and len(planning_buffer) > config['trajectory_buffer_size']:
-                logger.info(f"  Sliding window: Trimming buffer from {len(planning_buffer)} to {config['trajectory_buffer_size']}")
-                
-                # 获取所有数据
-                all_data = planning_buffer.get_all()
-                total_size = len(all_data['observations'])
-                
-                # 保留最新的trajectory_buffer_size个样本
-                keep_size = config['trajectory_buffer_size']
-                start_idx = total_size - keep_size
-                
-                # 创建新buffer
-                planning_buffer = MatrixGameBuffer(
-                    capacity=keep_size,
-                    obs_shape=env.obs_shape,
-                    n_agents=env.n_agents
-                )
-                
-                # 添加最新数据
-                for i in range(start_idx, total_size):
-                    planning_buffer.add(
-                        all_data['observations'][i],
-                        all_data['next_observations'][i],
-                        all_data['team1_actions'][i],
-                        all_data['team2_actions'][i],
-                        all_data['rewards'][i],
-                        all_data['terminated'][i]
-                    )
-                
-                logger.info(f"  Sliding window: Kept latest {len(planning_buffer)} samples (discarded {total_size - keep_size} oldest)")
-            
             # 调试: 分析Planning样本的分布
             trajectory_data = planning_buffer.get_all()
             logger.info(f"\n  [Planning样本分析]")
@@ -831,6 +805,10 @@ def main():
         # 定期保存模型
         if (k + 1) % config['save_interval'] == 0:
             algorithm.save_models(save_dir, iteration=k+1)
+            # 【新增】保存中途收敛曲线
+            logger.info(f"  生成中途收敛曲线 (iteration {k+1})...")
+            plot_convergence_curves(algorithm, env, save_dir, suffix=f'_iter{k+1}')
+            logger.info(f"  ✓ 中途曲线已保存: {save_dir}/convergence_curves_iter{k+1}.png\n")
     
     # 最终保存
     algorithm.save_models(save_dir)

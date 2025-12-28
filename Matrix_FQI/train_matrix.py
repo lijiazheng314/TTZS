@@ -24,7 +24,6 @@ from config_matrix import get_matrix_config
 
 
 class MatrixGameBuffer:
-    """矩阵博弈样本缓冲区"""
     
     def __init__(self, capacity, obs_shape, n_agents):
         self.capacity = capacity
@@ -43,11 +42,9 @@ class MatrixGameBuffer:
         self.position = 0
     
     def __len__(self):
-        """返回当前样本数量"""
         return self.count
     
     def add(self, obs, next_obs, team1_actions, team2_actions, rewards, terminated):
-        """添加样本"""
         idx = self.position
         
         self.observations[idx] = obs
@@ -61,7 +58,6 @@ class MatrixGameBuffer:
         self.count = min(self.count + 1, self.capacity)
     
     def get_all(self):
-        """获取所有有效样本"""
         return {
             'observations': self.observations[:self.count],
             'next_observations': self.next_observations[:self.count],
@@ -294,8 +290,7 @@ def evaluate_nash_distance(env, algorithm, show_q_matrix=False):
     return nash_distance, nash_value_avg, policy_entropy_avg
 
 
-def plot_convergence_curves(algorithm, env, save_dir):
-    """绘制收敛曲线 - 使用4个改进指标"""
+def plot_convergence_curves(algorithm, env, save_dir, suffix=''):
     import matplotlib
     matplotlib.use('Agg')
     import matplotlib.pyplot as plt
@@ -354,7 +349,7 @@ def plot_convergence_curves(algorithm, env, save_dir):
     
     plt.tight_layout()
     
-    plot_path = os.path.join(save_dir, 'convergence_curves.png')
+    plot_path = os.path.join(save_dir, f'convergence_curves{suffix}.png')
     plt.savefig(plot_path, dpi=150, bbox_inches='tight')
     logger.info(f"✓ Convergence curves saved: {plot_path}")
     plt.close()
@@ -399,6 +394,11 @@ def main():
     config['state_shape'] = env.state_shape
     config['n_agents'] = env.n_agents
     
+    # 【关键】重新设置种子，确保fqi和MDVI的Q网络初始化完全一致
+    # 环境创建可能消耗了随机状态，需要重新同步
+    np.random.seed(config['seed'])
+    paddle.seed(config['seed'])
+    
     # 创建算法
     algorithm = DecentralizedFQIAlgorithm(config)
     
@@ -437,6 +437,8 @@ def main():
     
     # 【新增】给Q网络加偏置，让初始策略偏离Nash均衡（与MDVI一致）
     logger.info(f"\n[添加初始偏置以显示学习过程]")
+    # 【关键】重新设置种子，保证偏置的随机性与MDVI一致
+    np.random.seed(config['seed'] + 999)  # 使用不同的种子偏移，但FQI和MDVI一致
     for agent_id in range(algorithm.n_agents):
         with paddle.no_grad():
             # 给bias加一个随机偏置，范围[-1.5, 1.5]，与MDVI一致
@@ -444,7 +446,7 @@ def main():
             algorithm.q_networks[agent_id].fc3.bias.set_value(
                 algorithm.q_networks[agent_id].fc3.bias.numpy() + bias_offset
             )
-    logger.info(f"  已为{algorithm.n_agents}个Q网络添加随机偏置（范围±1.5）")
+    logger.info(f"  已为{algorithm.n_agents}个Q网络添加随机偏置（范围±1.5，seed={config['seed']+999}）")
     
     # 重新检查加偏置后的Q矩阵
     with paddle.no_grad():
@@ -493,6 +495,10 @@ def main():
         # 定期保存模型
         if (k + 1) % config['save_interval'] == 0:
             algorithm.save_models(save_dir, iteration=k+1)
+            # 【新增】保存中途收敛曲线
+            logger.info(f"  生成中途收敛曲线 (iteration {k+1})...")
+            plot_convergence_curves(algorithm, env, save_dir, suffix=f'_iter{k+1}')
+            logger.info(f"  ✓ 中途曲线已保存: {save_dir}/convergence_curves_iter{k+1}.png\n")
     
     # 最终保存
     algorithm.save_models(save_dir)

@@ -16,21 +16,6 @@ import numpy as np
 
 
 class TwoTeamMatrixGame:
-    """
-    两队零和矩阵博弈环境
-    
-    支持两种模式:
-    1. 单阶段博弈: 一次交互即终止 (rock_paper_scissors, matching_pennies, coordination)
-    2. 两阶段Shapley博弈: 第一次交互后转移到新状态,第二次交互后终止
-    
-    Team 1: n个智能体,每个智能体有m个动作
-    Team 2: n个智能体,每个智能体有m个动作  
-    
-    Payoff矩阵设计:
-    - Team 1追求最大化payoff
-    - Team 2追求最小化payoff(零和)
-    - Nash均衡为混合策略(非纯策略)
-    """
     
     def __init__(self, n_agents_team1=3, n_agents_team2=3, n_actions=3, 
                  game_type='rock_paper_scissors', cooperation_weight=0.0):
@@ -110,13 +95,6 @@ class TwoTeamMatrixGame:
         print(f"  Team 2 Nash strategy: {self.true_nash_team2}")
     
     def _design_payoff_matrix(self):
-        """
-        设计非平凡混合策略Nash均衡的payoff矩阵
-        
-        Returns:
-            payoff_matrix: [n_actions, n_actions] 矩阵
-                           payoff_matrix[a, b] = Team 1获得的收益
-        """
         if self.game_type == 'rock_paper_scissors':
             # 经典剪刀石头布: Nash均衡为(1/3, 1/3, 1/3)
             assert self.n_actions == 3, "Rock-Paper-Scissors需要3个动作"
@@ -235,14 +213,6 @@ class TwoTeamMatrixGame:
         return payoff_stage1, payoff_stage2
     
     def _compute_true_nash(self):
-        """
-        计算理论Nash均衡(使用线性规划)
-        
-        Returns:
-            nash_team1: [n_actions] Team 1的Nash策略
-            nash_team2: [n_actions] Team 2的Nash策略  
-            nash_value: Nash均衡值
-        """
         from scipy.optimize import linprog
         
         n = self.n_actions
@@ -297,13 +267,6 @@ class TwoTeamMatrixGame:
         return nash_team1, nash_team2, nash_value
     
     def reset(self):
-        """
-        重置环境
-        
-        Returns:
-            state: [state_dim] 状态向量 (全局状态,不再使用)
-            observations: [n_agents, obs_dim] 每个智能体的观测
-        """
         # 重置阶段
         self.current_stage = 0
         self.first_stage_actions = None
@@ -322,27 +285,12 @@ class TwoTeamMatrixGame:
         return state, observations
     
     def step(self, actions_team1, actions_team2):
-        """
-        执行一步
-        
-        Args:
-            actions_team1: [n_agents_team1] Team 1的动作
-            actions_team2: [n_agents_team2] Team 2的动作
-            
-        Returns:
-            next_state: 下一状态
-            next_observations: 下一观测
-            rewards_team1: [n_agents_team1] Team 1各智能体奖励
-            rewards_team2: [n_agents_team2] Team 2各智能体奖励
-            terminated: 是否结束
-        """
         if self.is_two_stage:
             return self._step_two_stage(actions_team1, actions_team2)
         else:
             return self._step_single_stage(actions_team1, actions_team2)
     
     def _step_single_stage(self, actions_team1, actions_team2):
-        """单阶段博弈的step - 一一对应博弈 + 混合奖励"""
         # 先计算每个Agent的个体奖励
         individual_rewards_team1 = np.zeros(self.n_agents_team1, dtype=np.float32)
         individual_rewards_team2 = np.zeros(self.n_agents_team2, dtype=np.float32)
@@ -376,7 +324,6 @@ class TwoTeamMatrixGame:
         return next_state, next_observations, rewards_team1, rewards_team2, terminated
     
     def _step_two_stage(self, actions_team1, actions_team2):
-        """两阶段Shapley博弈的step"""
         if self.current_stage == 0:
             # 第一阶段: 有即时reward,转移到第二阶段
             self.first_stage_actions = (actions_team1.copy(), actions_team2.copy())
@@ -512,24 +459,12 @@ class TwoTeamMatrixGame:
         return np.array(observations, dtype=np.float32)
     
     def get_payoff(self, action_team1, action_team2):
-        """
-        直接获取payoff(用于Q值计算)
-        
-        Args:
-            action_team1: Team 1的动作索引
-            action_team2: Team 2的动作索引
-            
-        Returns:
-            payoff: float, Team 1的收益
-        """
         return float(self.payoff_matrix[action_team1, action_team2])
     
     @property
     def obs_shape(self):
-        """观测维度"""
         return self.obs_dim
     
     @property
-    def state_shape(self):
-        """状态维度"""  
+    def state_shape(self):  
         return self.state_dim
